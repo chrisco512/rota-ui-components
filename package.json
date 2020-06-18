@@ -1,15 +1,22 @@
 {
-  "name": "rota-ui-experiments",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
-  },
-  "dependencies": {
-    "next": "9.4.4",
-    "react": "16.13.1",
-    "react-dom": "16.13.1"
-  }
+	"name": "rota-ui-components",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start"
+	},
+	"dependencies": {
+		"@chakra-ui/core": "^0.8.0",
+		"@emotion/core": "^10.0.28",
+		"@emotion/styled": "^10.0.27",
+		"avataaars": "^1.2.1",
+		"emotion-theming": "^10.0.27",
+		"framer-motion": "^1.11.1",
+		"next": "9.4.4",
+		"react": "16.13.1",
+		"react-dom": "16.13.1",
+		"react-icons": "^3.10.0"
+	}
 }

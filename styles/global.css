@@ -1,0 +1,36 @@
+.container {
+	min-height: 100vh;
+	padding: 0 0.5rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+html,
+body {
+	padding: 0;
+	margin: 0;
+}
+* {
+	box-sizing: border-box;
+}
+@font-face {
+	font-family: 'NexaSlab-Bold';
+	src: url('/fonts/NexaSlab-Bold/font.woff2'), url('/fonts/NexaSlab-Bold/font.woff');
+}
+@font-face {
+	font-family: 'NexaText-Book';
+	src: url('/fonts/NexaText-Book/font.woff2'), url('/fonts/NexaText-Book/font.woff');
+}
+@font-face {
+	font-family: 'NexaSlabBlack';
+	src: url('/fonts/NexaSlabBlack/font.woff2'), url('/fonts/NexaSlabBlack/font.woff');
+}
+@font-face {
+	font-family: 'Nexa-Bold';
+	src: url('/fonts/Nexa-Bold/font.woff2'), url('/fonts/Nexa-Bold/font.woff');
+}
+@font-face {
+	font-family: 'NexaRustSans-Black';
+	src: url('/fonts/NexaRustSans-Black/font.woff2'), url('/fonts/NexaRustSans-Black/font.woff');
+}
