@@ -9,7 +9,7 @@ export default function ThreadClipSummaryPage() {
 			<Heading as="h1" fontSize={7} fontFamily="slab" pt={12} pb={6}>
 				Avatar
 			</Heading>
-			<Avatar />
+			<Avatar clotheType="GraphicShirt" clotheColor="Red" graphicType="Bear" />
 		</Box>
 	);
 }

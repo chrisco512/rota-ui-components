@@ -14,6 +14,7 @@
 		"avataaars": "^1.2.1",
 		"emotion-theming": "^10.0.27",
 		"framer-motion": "^1.11.1",
+		"nanoid": "^3.1.10",
 		"next": "9.4.4",
 		"react": "16.13.1",
 		"react-dom": "16.13.1",

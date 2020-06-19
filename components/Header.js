@@ -1,6 +1,5 @@
 import { Text, Flex, Heading, Box, Button, Switch, Stack, IconButton, useColorMode, Link } from '@chakra-ui/core';
 import { useState } from 'react';
-import NextLink from 'next/link';
 import { motion } from 'framer-motion';
 import { FaMoon, FaSun } from 'react-icons/fa';
 
