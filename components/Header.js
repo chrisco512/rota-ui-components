@@ -1,6 +1,6 @@
-import { Text, Flex, Heading, Box, Button, Switch, Stack, IconButton, useColorMode } from '@chakra-ui/core';
+import { Text, Flex, Heading, Box, Button, Switch, Stack, IconButton, useColorMode, Link } from '@chakra-ui/core';
 import { useState } from 'react';
-import Link from 'next/link';
+import NextLink from 'next/link';
 import { motion } from 'framer-motion';
 import { FaMoon, FaSun } from 'react-icons/fa';
 
@@ -31,7 +31,7 @@ export default function Header({}) {
 			bg="outline.500"
 			color="white"
 		>
-			<Link href="/">
+			<Link as={NextLink} href="/">
 				<Flex align="center" mr={5} cursor="pointer" style={{ userSelect: 'none', WebkitTouchCallout: 'none' }}>
 					<MotionBox
 						animate={{ rotate: 360 }}
