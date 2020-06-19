@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { FaMoon, FaSun } from 'react-icons/fa';
 
 import Logo from './Logo';
+import RotaLink from './RotaLink';
 
 const MotionBox = motion.custom(Box);
 
@@ -31,7 +32,7 @@ export default function Header({}) {
 			bg="outline.500"
 			color="white"
 		>
-			<Link as={NextLink} href="/">
+			<RotaLink href="/">
 				<Flex align="center" mr={5} cursor="pointer" style={{ userSelect: 'none', WebkitTouchCallout: 'none' }}>
 					<MotionBox
 						animate={{ rotate: 360 }}
@@ -50,7 +51,7 @@ export default function Header({}) {
 						</Text>
 					</Heading>
 				</Flex>
-			</Link>
+			</RotaLink>
 
 			<Box display={{ _: 'block', md: 'none' }} onClick={handleToggle}>
 				<svg fill="white" width="12px" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
