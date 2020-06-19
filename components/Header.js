@@ -1,23 +1,49 @@
-import { Text, Flex, Heading, Box, Button, Switch, Stack, IconButton, useColorMode, Link } from '@chakra-ui/core';
+import {
+	Text,
+	Flex,
+	Heading,
+	Box,
+	Button,
+	Stack,
+	IconButton,
+	useColorMode,
+	Drawer,
+	DrawerOverlay,
+	DrawerContent,
+	DrawerBody,
+	DrawerFooter,
+	useDisclosure,
+} from '@chakra-ui/core';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FaMoon, FaSun } from 'react-icons/fa';
+import { FaMoon, FaSun, FaRegListAlt } from 'react-icons/fa';
 
 import Logo from './Logo';
 import RotaLink from './RotaLink';
+import { MenuList } from './Menu';
 
 const MotionBox = motion.custom(Box);
 
-const MenuItems = ({ children }) => (
-	<Text mt={{ _: 4, md: 0 }} mr={6} display="block">
-		{children}
-	</Text>
-);
+function MenuDrawer({ isOpen, onOpen, onClose, btnRef }) {
+	return (
+		<Drawer isOpen={isOpen} placement="left" onClose={onClose} finalFocusRef={btnRef}>
+			<DrawerOverlay />
+			<DrawerContent>
+				<DrawerBody>
+					<MenuList />
+				</DrawerBody>
+				<DrawerFooter>Footer here</DrawerFooter>
+			</DrawerContent>
+		</Drawer>
+	);
+}
 
 export default function Header({}) {
 	const [ show, setShow ] = useState(false);
 	const handleToggle = () => setShow(!show);
 	const { colorMode, toggleColorMode } = useColorMode();
+	const { isOpen, onOpen, onClose } = useDisclosure();
+	const btnRef = React.useRef();
 
 	const colorModeIcon = { light: FaMoon, dark: FaSun };
 
@@ -31,6 +57,7 @@ export default function Header({}) {
 			bg="outline.500"
 			color="white"
 		>
+			<MenuDrawer isOpen={isOpen} onOpen={onOpen} onClose={onClose} btnRef={btnRef} />
 			<RotaLink href="/">
 				<Flex align="center" mr={5} cursor="pointer" style={{ userSelect: 'none', WebkitTouchCallout: 'none' }}>
 					<MotionBox
@@ -52,25 +79,7 @@ export default function Header({}) {
 				</Flex>
 			</RotaLink>
 
-			<Box display={{ _: 'block', md: 'none' }} onClick={handleToggle}>
-				<svg fill="white" width="12px" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-					<title>Menu</title>
-					<path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-				</svg>
-			</Box>
-
-			<Box
-				display={{ _: show ? 'block' : 'none', md: 'flex' }}
-				width={{ _: 'full', md: 'auto' }}
-				alignItems="center"
-				flexGrow={1}
-			>
-				<MenuItems>Docs</MenuItems>
-				<MenuItems>Examples</MenuItems>
-				<MenuItems>Blog</MenuItems>
-			</Box>
-
-			<Stack isInline alignItems="center" mr={2}>
+			<Stack isInline alignItems="center">
 				<IconButton
 					aria-label="Toggle dark mode"
 					icon={colorModeIcon[colorMode]}
@@ -78,13 +87,16 @@ export default function Header({}) {
 					variant="ghost"
 					onClick={toggleColorMode}
 				/>
+				<IconButton
+					ref={btnRef}
+					aria-label="Toggle dark mode"
+					icon={FaRegListAlt}
+					size="lg"
+					variant="ghost"
+					onClick={onOpen}
+					display={{ _: 'block', md: 'none' }}
+				/>
 			</Stack>
-
-			<Box display={{ _: show ? 'block' : 'none', md: 'block' }} mt={{ _: 4, md: 0 }}>
-				<Button bg="transparent" border="1px">
-					Create Account
-				</Button>
-			</Box>
 		</Flex>
 	);
 }
