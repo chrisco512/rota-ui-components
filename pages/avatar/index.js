@@ -228,19 +228,19 @@ function Selector({ optionName, optionIndex, setOption, optionsArray }) {
 }
 
 export default function AvatarPage() {
-	const [ topIndex, setTopIndex ] = useState(0);
+	const [ topIndex, setTopIndex ] = useState(14);
 	const [ hatColorIndex, setHatColorIndex ] = useState(0);
 	const [ accessoryIndex, setAccessoryIndex ] = useState(0);
-	const [ hairColorIndex, setHairColorIndex ] = useState(0);
-	const [ facialHairIndex, setFacialHairIndex ] = useState(0);
-	const [ facialHairColorIndex, setFacialHairColorIndex ] = useState(0);
+	const [ hairColorIndex, setHairColorIndex ] = useState(5);
+	const [ facialHairIndex, setFacialHairIndex ] = useState(1);
+	const [ facialHairColorIndex, setFacialHairColorIndex ] = useState(5);
 	const [ clotheIndex, setClotheIndex ] = useState(0);
 	const [ clotheColorIndex, setClotheColorIndex ] = useState(0);
 	const [ clotheGraphicIndex, setClotheGraphicIndex ] = useState(0);
-	const [ eyebrowIndex, setEyebrowIndex ] = useState(0);
-	const [ eyeIndex, setEyeIndex ] = useState(0);
-	const [ mouthIndex, setMouthIndex ] = useState(0);
-	const [ skinColorIndex, setSkinColorIndex ] = useState(0);
+	const [ eyebrowIndex, setEyebrowIndex ] = useState(7);
+	const [ eyeIndex, setEyeIndex ] = useState(8);
+	const [ mouthIndex, setMouthIndex ] = useState(8);
+	const [ skinColorIndex, setSkinColorIndex ] = useState(5);
 
 	return (
 		<Box>
@@ -366,6 +366,24 @@ export default function AvatarPage() {
 />
 					`}
 				</SyntaxHighlighter>
+			</Box>
+			<Box bg="green.500" h={32} w={32} pos="absolute" bottom={3} right={6} display={{ _: 'block', lg: 'none' }}>
+				<Avatar
+					style={{ height: '100%', width: '100%' }}
+					eyeType={eyeOptions[eyeIndex]}
+					eyebrowType={eyebrowOptions[eyebrowIndex]}
+					mouthType={mouthOptions[mouthIndex]}
+					topType={topOptions[topIndex]}
+					hatColor={hatColorOptions[hatColorIndex]}
+					accessoriesType={accessoriesOptions[accessoryIndex]}
+					hairColor={hairColorOptions[hairColorIndex]}
+					facialHairType={facialHairOptions[facialHairIndex]}
+					facialHairColor={facialHairColorOptions[facialHairColorIndex]}
+					clotheType={clotheOptions[clotheIndex]}
+					clotheColor={clotheColorOptions[clotheColorIndex]}
+					graphicType={clotheGraphicOptions[clotheGraphicIndex]}
+					skinColor={skinColorOptions[skinColorIndex]}
+				/>
 			</Box>
 		</Box>
 	);
