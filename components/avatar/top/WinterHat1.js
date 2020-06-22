@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { nanoid } from 'nanoid/non-secure';
 
 import FacialHair from './facialhair/FacialHairs';
-import HatColor from './HairColor';
+import HatColor from './HatColor';
 
 export default function WinterHat1({ children, hatColor, facialHairType, facialHairColor }) {
 	const [ path1Id ] = useState(nanoid);

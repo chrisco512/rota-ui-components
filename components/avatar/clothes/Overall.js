@@ -3,7 +3,7 @@ import { nanoid } from 'nanoid/non-secure';
 
 import { Colors } from './';
 
-export default function Overall() {
+export default function Overall({ color }) {
 	const [ pathId ] = useState(nanoid);
 	const [ maskId ] = useState(nanoid);
 
@@ -22,7 +22,7 @@ export default function Overall() {
 				<use xlinkHref={'#' + path1} />
 			</mask>
 			<use id="Overall" fill="#B7C1DB" fillRule="evenodd" xlinkHref={'#' + path1} />
-			<Colors maskId={mask1} />
+			<Colors maskId={mask1} color={color} />
 			<circle id="Button" fill="#F4F4F4" fillRule="evenodd" cx="81" cy="83" r="5" />
 			<circle id="Button" fill="#F4F4F4" fillRule="evenodd" cx="183" cy="83" r="5" />
 		</g>

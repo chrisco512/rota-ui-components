@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { nanoid } from 'nanoid/non-secure';
 
-import { Colors } from './';
+import Colors from './Colors';
 
-export default function Hoodie() {
+export default function Hoodie({ color }) {
 	const [ pathId ] = useState(nanoid);
 	const [ maskId ] = useState(nanoid);
 
@@ -22,7 +22,7 @@ export default function Hoodie() {
 				<use xlinkHref={'#' + path1} />
 			</mask>
 			<use id="Hoodie" fill="#B7C1DB" fillRule="evenodd" xlinkHref={'#' + path1} />
-			<Colors maskId={mask1} />
+			<Colors maskId={mask1} color={color} />
 			<path
 				d="M102,61.7390531 L102,110 L95,110 L95,58.1502625 C97.2037542,59.4600576 99.5467694,60.6607878 102,61.7390531 Z M169,58.1502625 L169,98.5 C169,100.432997 167.432997,102 165.5,102 C163.567003,102 162,100.432997 162,98.5 L162,61.7390531 C164.453231,60.6607878 166.796246,59.4600576 169,58.1502625 Z"
 				id="Straps"
