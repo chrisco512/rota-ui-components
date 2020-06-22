@@ -89,12 +89,12 @@ export default function Header({}) {
 				/>
 				<IconButton
 					ref={btnRef}
-					aria-label="Toggle dark mode"
+					aria-label="Open navigation menu"
 					icon={FaRegListAlt}
 					size="lg"
 					variant="ghost"
 					onClick={onOpen}
-					display={{ _: 'block', md: 'none' }}
+					display={{ _: 'block', lg: 'none' }}
 				/>
 			</Stack>
 		</Flex>
