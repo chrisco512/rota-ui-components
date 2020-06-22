@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { nanoid } from 'nanoid/non-secure';
 
+import Colors from './Colors';
+
 export default function MoustacheFancy({ facialHairColor }) {
 	const [ path1Id ] = useState(nanoid);
 	const [ mask1Id ] = useState(nanoid);

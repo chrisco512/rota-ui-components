@@ -3,7 +3,7 @@ import { nanoid } from 'nanoid/non-secure';
 
 import { Colors } from './';
 
-export default function ShirtVNeck() {
+export default function ShirtVNeck({ color }) {
 	const [ pathId ] = useState(nanoid);
 	const [ maskId ] = useState(nanoid);
 
@@ -22,7 +22,7 @@ export default function ShirtVNeck() {
 				<use xlinkHref={'#' + path1} />
 			</mask>
 			<use id="Clothes" fill="#E6E6E6" fillRule="evenodd" xlinkHref={'#' + path1} />
-			<Colors maskId={mask1} />
+			<Colors maskId={mask1} color={color} />
 		</g>
 	);
 }

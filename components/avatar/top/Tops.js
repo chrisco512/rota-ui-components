@@ -42,29 +42,41 @@ export default function Tops({
 	hatColor = 'Red',
 	facialHairColor = 'Brown',
 	facialHairType = 'Blank',
+	...rest
 }) {
 	switch (topType) {
 		case 'Eyepatch':
-			return <Eyepatch />;
+			return <Eyepatch {...rest} />;
 		case 'Hat':
-			return <Hat facialHairColor={facialHairColor} facialHairType={facialHairType} />;
+			return <Hat facialHairColor={facialHairColor} facialHairType={facialHairType} {...rest} />;
 		case 'Hijab':
-			return <Hijab hatColor={hatColor} />;
+			return <Hijab hatColor={hatColor} {...rest} />;
 		case 'LongHairBigHair':
 			return (
 				<LongHairBigHair
 					hairColor={hairColor}
 					facialHairColor={facialHairColor}
 					facialHairType={facialHairType}
+					{...rest}
 				/>
 			);
 		case 'LongHairBob':
 			return (
-				<LongHairBob hairColor={hairColor} facialHairColor={facialHairColor} facialHairType={facialHairType} />
+				<LongHairBob
+					hairColor={hairColor}
+					facialHairColor={facialHairColor}
+					facialHairType={facialHairType}
+					{...rest}
+				/>
 			);
 		case 'LongHairBun':
 			return (
-				<LongHairBun hairColor={hairColor} facialHairColor={facialHairColor} facialHairType={facialHairType} />
+				<LongHairBun
+					hairColor={hairColor}
+					facialHairColor={facialHairColor}
+					facialHairType={facialHairType}
+					{...rest}
+				/>
 			);
 		case 'LongHairCurly':
 			return (
@@ -72,6 +84,7 @@ export default function Tops({
 					hairColor={hairColor}
 					facialHairColor={facialHairColor}
 					facialHairType={facialHairType}
+					{...rest}
 				/>
 			);
 		case 'LongHairCurvy':
@@ -80,6 +93,7 @@ export default function Tops({
 					hairColor={hairColor}
 					facialHairColor={facialHairColor}
 					facialHairType={facialHairType}
+					{...rest}
 				/>
 			);
 		case 'LongHairDreads':
@@ -88,6 +102,7 @@ export default function Tops({
 					hairColor={hairColor}
 					facialHairColor={facialHairColor}
 					facialHairType={facialHairType}
+					{...rest}
 				/>
 			);
 		case 'LongHairFrida':
@@ -96,11 +111,17 @@ export default function Tops({
 					hairColor={hairColor}
 					facialHairColor={facialHairColor}
 					facialHairType={facialHairType}
+					{...rest}
 				/>
 			);
 		case 'LongHairFro':
 			return (
-				<LongHairFro hairColor={hairColor} facialHairColor={facialHairColor} facialHairType={facialHairType} />
+				<LongHairFro
+					hairColor={hairColor}
+					facialHairColor={facialHairColor}
+					facialHairType={facialHairType}
+					{...rest}
+				/>
 			);
 		case 'LongHairFroBand':
 			return (
@@ -108,6 +129,7 @@ export default function Tops({
 					hairColor={hairColor}
 					facialHairColor={facialHairColor}
 					facialHairType={facialHairType}
+					{...rest}
 				/>
 			);
 		case 'LongHairMiaWallace':
@@ -116,6 +138,7 @@ export default function Tops({
 					hairColor={hairColor}
 					facialHairColor={facialHairColor}
 					facialHairType={facialHairType}
+					{...rest}
 				/>
 			);
 		case 'LongHairNotTooLong':
@@ -124,6 +147,7 @@ export default function Tops({
 					hairColor={hairColor}
 					facialHairColor={facialHairColor}
 					facialHairType={facialHairType}
+					{...rest}
 				/>
 			);
 		case 'LongHairShavedSides':
@@ -132,6 +156,7 @@ export default function Tops({
 					hairColor={hairColor}
 					facialHairColor={facialHairColor}
 					facialHairType={facialHairType}
+					{...rest}
 				/>
 			);
 		case 'LongHairStraight':
@@ -140,6 +165,7 @@ export default function Tops({
 					hairColor={hairColor}
 					facialHairColor={facialHairColor}
 					facialHairType={facialHairType}
+					{...rest}
 				/>
 			);
 		case 'LongHairStraight2':
@@ -148,6 +174,7 @@ export default function Tops({
 					hairColor={hairColor}
 					facialHairColor={facialHairColor}
 					facialHairType={facialHairType}
+					{...rest}
 				/>
 			);
 		case 'LongHairStraightStrand':
@@ -156,16 +183,18 @@ export default function Tops({
 					hairColor={hairColor}
 					facialHairColor={facialHairColor}
 					facialHairType={facialHairType}
+					{...rest}
 				/>
 			);
 		case 'NoHair':
-			return <NoHair facialHairColor={facialHairColor} facialHairType={facialHairType} />;
+			return <NoHair facialHairColor={facialHairColor} facialHairType={facialHairType} {...rest} />;
 		case 'ShortHairDreads01':
 			return (
 				<ShortHairDreads01
 					hairColor={hairColor}
 					facialHairColor={facialHairColor}
 					facialHairType={facialHairType}
+					{...rest}
 				/>
 			);
 		case 'ShortHairDreads02':
@@ -174,6 +203,7 @@ export default function Tops({
 					hairColor={hairColor}
 					facialHairColor={facialHairColor}
 					facialHairType={facialHairType}
+					{...rest}
 				/>
 			);
 		case 'ShortHairFrizzle':
@@ -182,6 +212,7 @@ export default function Tops({
 					hairColor={hairColor}
 					facialHairColor={facialHairColor}
 					facialHairType={facialHairType}
+					{...rest}
 				/>
 			);
 		case 'ShortHairShaggyMullet':
@@ -190,6 +221,7 @@ export default function Tops({
 					hairColor={hairColor}
 					facialHairColor={facialHairColor}
 					facialHairType={facialHairType}
+					{...rest}
 				/>
 			);
 		case 'ShortHairShortCurly':
@@ -198,6 +230,7 @@ export default function Tops({
 					hairColor={hairColor}
 					facialHairColor={facialHairColor}
 					facialHairType={facialHairType}
+					{...rest}
 				/>
 			);
 		case 'ShortHairShortFlat':
@@ -206,6 +239,7 @@ export default function Tops({
 					hairColor={hairColor}
 					facialHairColor={facialHairColor}
 					facialHairType={facialHairType}
+					{...rest}
 				/>
 			);
 		case 'ShortHairShortRound':
@@ -214,6 +248,7 @@ export default function Tops({
 					hairColor={hairColor}
 					facialHairColor={facialHairColor}
 					facialHairType={facialHairType}
+					{...rest}
 				/>
 			);
 		case 'ShortHairShortWaved':
@@ -222,6 +257,7 @@ export default function Tops({
 					hairColor={hairColor}
 					facialHairColor={facialHairColor}
 					facialHairType={facialHairType}
+					{...rest}
 				/>
 			);
 		case 'ShortHairSides':
@@ -230,6 +266,7 @@ export default function Tops({
 					hairColor={hairColor}
 					facialHairColor={facialHairColor}
 					facialHairType={facialHairType}
+					{...rest}
 				/>
 			);
 		case 'ShortHairTheCaesar':
@@ -238,6 +275,7 @@ export default function Tops({
 					hairColor={hairColor}
 					facialHairColor={facialHairColor}
 					facialHairType={facialHairType}
+					{...rest}
 				/>
 			);
 		case 'ShortHairTheCaesarSidePart':
@@ -246,19 +284,55 @@ export default function Tops({
 					hairColor={hairColor}
 					facialHairColor={facialHairColor}
 					facialHairType={facialHairType}
+					{...rest}
 				/>
 			);
 		case 'Turban':
-			return <Turban hatColor={hatColor} facialHairColor={facialHairColor} facialHairType={facialHairType} />;
+			return (
+				<Turban
+					hatColor={hatColor}
+					facialHairColor={facialHairColor}
+					facialHairType={facialHairType}
+					{...rest}
+				/>
+			);
 		case 'WinterHat1':
-			return <WinterHat1 hatColor={hatColor} facialHairColor={facialHairColor} facialHairType={facialHairType} />;
+			return (
+				<WinterHat1
+					hatColor={hatColor}
+					facialHairColor={facialHairColor}
+					facialHairType={facialHairType}
+					{...rest}
+				/>
+			);
 		case 'WinterHat2':
-			return <WinterHat2 hatColor={hatColor} facialHairColor={facialHairColor} facialHairType={facialHairType} />;
+			return (
+				<WinterHat2
+					hatColor={hatColor}
+					facialHairColor={facialHairColor}
+					facialHairType={facialHairType}
+					{...rest}
+				/>
+			);
 		case 'WinterHat3':
-			return <WinterHat3 hatColor={hatColor} facialHairColor={facialHairColor} facialHairType={facialHairType} />;
+			return (
+				<WinterHat3
+					hatColor={hatColor}
+					facialHairColor={facialHairColor}
+					facialHairType={facialHairType}
+					{...rest}
+				/>
+			);
 		case 'WinterHat4':
-			return <WinterHat4 hatColor={hatColor} facialHairColor={facialHairColor} facialHairType={facialHairType} />;
+			return (
+				<WinterHat4
+					hatColor={hatColor}
+					facialHairColor={facialHairColor}
+					facialHairType={facialHairType}
+					{...rest}
+				/>
+			);
 		default:
-			return <Blank />;
+			return <NoHair {...rest} />;
 	}
 }

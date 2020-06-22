@@ -17,6 +17,8 @@ export default function ShortHairDreads02({ children, hairColor, facialHairType,
 	const mask1 = `react-mask-${mask1Id}`;
 	const mask2 = `react-mask-${mask2Id}`;
 
+	console.log({ children });
+
 	return (
 		<g id="Top" strokeWidth="1" fillRule="evenodd">
 			<defs>
