@@ -25,7 +25,7 @@ export default function ThreadClipSummary(props) {
 						<Avatar
 							style={{ width: '100%', height: '100%' }}
 							avatarStyle="Transparent"
-							topType="LongHairCurly"
+							topType="LongHairDreads"
 							accessoriesType="Blank"
 							hairColor="BrownDark"
 							facialHairType="BeardLight"
