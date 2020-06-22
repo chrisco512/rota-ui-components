@@ -1,5 +1,5 @@
 import { Box, Flex, Stack, useColorMode } from '@chakra-ui/core';
-import Avatar from 'avataaars';
+import Avatar from '../avatar';
 
 import { ThreadClipProgress, ThreadClipAuthorInfo, ThreadClipMeta, ThreadClipMenu, ThreadClipText } from './';
 import { bgColor } from '../../styles/theme';
@@ -25,7 +25,7 @@ export default function ThreadClipSummary(props) {
 						<Avatar
 							style={{ width: '100%', height: '100%' }}
 							avatarStyle="Transparent"
-							topType="LongHairDreads"
+							topType="LongHairCurly"
 							accessoriesType="Blank"
 							hairColor="BrownDark"
 							facialHairType="BeardLight"

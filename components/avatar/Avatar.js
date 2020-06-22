@@ -1,10 +1,15 @@
 import { Clothes } from './clothes';
+import Face from './face';
+import Top from './top/Tops';
+import Accessories from './top/accessories/Accessories';
+import Skin from './Skin';
 
 export default function Avatar({
 	avatarStyle = 'transparent',
 	topType = 'LongHairDreads',
 	accessoriesType = 'Blank',
 	hairColor = 'BrownDark',
+	hatColor = 'Red',
 	facialHairType = 'BeardLight',
 	facialHairColor = 'BrownDark',
 	clotheType = 'BlazerShirt',
@@ -71,7 +76,7 @@ export default function Avatar({
 									<use xlinkHref="#path-5" />
 								</mask>
 								<use fill="#D0C6AC" xlinkHref="#path-5" />
-								{/* <Skin maskID="mask-6" /> */}
+								<Skin maskId="mask-6" color={skinColor} />
 								<path
 									d="M156,79 L156,102 C156,132.927946 130.927946,158 100,158 C69.072054,158 44,132.927946 44,102 L44,79 L44,94 C44,124.927946 69.072054,150 100,150 C130.927946,150 156,124.927946 156,94 L156,79 Z"
 									id="Neck-Shadow"
@@ -81,10 +86,16 @@ export default function Avatar({
 								/>
 							</g>
 							<Clothes clotheType={clotheType} clotheColor={clotheColor} graphicType={graphicType} />
-							{/* <Face />
-							<Top>
-								<Accessories />
-							</Top> */}
+							<Face mouthType={mouthType} eyeType={eyeType} eyebrowType={eyebrowType} />
+							<Top
+								topType={topType}
+								hairColor={hairColor}
+								hatColor={hatColor}
+								facialHairColor={facialHairColor}
+								facialHairType={facialHairType}
+							>
+								<Accessories accessoriesType={accessoriesType} />
+							</Top>
 						</g>
 					</g>
 				</g>
