@@ -11,7 +11,7 @@ export default function ThreadClipProgress({ percentPlayed = 0, lengthInSeconds 
 		<Flex alignItems="center">
 			<LightMode>
 				<Progress
-					w={[ 4 / 5 ]}
+					w="80%"
 					mr="1"
 					color="primary"
 					hasStripe

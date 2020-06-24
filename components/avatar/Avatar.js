@@ -23,8 +23,6 @@ export default function Avatar({
 }) {
 	const circle = avatarStyle === 'circle' ? true : false;
 
-	console.log({ topType, accessoriesType, hairColor, hatColor, facialHairColor, facialHairType });
-
 	return (
 		<svg
 			style={style}

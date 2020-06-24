@@ -45,6 +45,7 @@ export function MenuList() {
 			<MenuSubHeading text="Components" />
 			<MenuComponentItem href="/thread-clip-summary" text="ThreadClipSummary" />
 			<MenuComponentItem href="/avatar" text="Avatar" />
+			<MenuComponentItem href="/table-view" text="TableView I" />
 		</Stack>
 	);
 }

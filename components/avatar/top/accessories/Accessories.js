@@ -1,7 +1,6 @@
 import { Blank, Kurt, Prescription01, Prescription02, Round, Sunglasses, Wayfarers } from './';
 
 export default function Accessories({ accessoriesType = 'Blank' }) {
-	console.log({ accessoriesType });
 	switch (accessoriesType) {
 		case 'Kurt':
 			return <Kurt />;

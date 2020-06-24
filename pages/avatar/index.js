@@ -243,7 +243,7 @@ export default function AvatarPage() {
 	const [ skinColorIndex, setSkinColorIndex ] = useState(5);
 
 	return (
-		<Box>
+		<Box w={{ _: 'full', md: 'containers.md', lg: 'containers.md' }} p={4}>
 			<Heading as="h1" fontSize={7} fontFamily="slab" pt={12} pb={6}>
 				Avatar
 			</Heading>

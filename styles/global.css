@@ -14,6 +14,17 @@ body {
 * {
 	box-sizing: border-box;
 }
+.thread-scroll::-webkit-scrollbar {
+	width: 0.5em;
+	background-color: #5b3214;
+}
+.thread-scroll::-webkit-scrollbar-track {
+	padding: 2px;
+}
+.thread-scroll::-webkit-scrollbar-thumb {
+	background-color: #fcfcfc;
+	border: 1px solid #5b3214;
+}
 @font-face {
 	font-family: 'NexaSlab-Bold';
 	src: url('/fonts/NexaSlab-Bold/font.woff2'), url('/fonts/NexaSlab-Bold/font.woff');
