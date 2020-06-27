@@ -9,15 +9,7 @@ export default function ThreadClipSummary(props) {
 	const { text } = props;
 
 	return (
-		<Stack
-			borderTopWidth="1px"
-			borderBottomWidth="1px"
-			borderColor="outline.500"
-			maxW="512px"
-			minW="300px"
-			width="100%"
-			{...props}
-		>
+		<Stack maxW="512px" minW="300px" width="100%" {...props}>
 			<Flex
 				flexDirection="column"
 				overflow="hidden"

@@ -23,11 +23,11 @@ body {
 }
 .thread-scroll::-webkit-scrollbar-thumb {
 	background-color: #fcfcfc;
-	border: 1px solid #5b3214;
+	border-left: 1px solid #5b3214;
 }
 .thread-scroll {
-	scrollbar-color: #fcfcfc;
-	scrollbar-width: 0.5em;
+	scrollbar-color: #fcfcfc #5b3214;
+	scrollbar-width: thin;
 }
 @font-face {
 	font-family: 'NexaSlab-Bold';

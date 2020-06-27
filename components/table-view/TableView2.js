@@ -118,7 +118,13 @@ export default function TableView(props) {
 						<ThreadClipProgress lengthInSeconds={24} percentPlayed={38} showSeconds={false} w="100%" />
 					</Box>
 				</Flex>
-				<Flex bg="secondary.500" align="center" justify="center">
+				<Flex
+					bg="secondary.500"
+					align="center"
+					justify="center"
+					borderBottomWidth={1}
+					borderColor="outline.500"
+				>
 					<Text
 						fontSize={2}
 						isTruncated
@@ -132,16 +138,15 @@ export default function TableView(props) {
 						Current Thread
 					</Text>
 				</Flex>
-				<Stack w="100%" flexGrow={1} overflowY="auto" className="thread-scroll" spacing={-1}>
-					<ThreadClipSummary text="Some text to include in the da bubble. If the text must wrap this is what it might look like. See this link for details: https://www.ign.com. I might just keep going and dragging on with what I need to say here." />
-					<ThreadClipSummary />
-					<ThreadClipSummary />
-					<ThreadClipSummary />
-					<ThreadClipSummary />
-					<ThreadClipSummary />
-					<ThreadClipSummary />
-					<ThreadClipSummary />
-					<ThreadClipSummary />
+				<Stack w="100%" flexGrow={1} overflowY="auto" className="thread-scroll" spacing={0}>
+					<ThreadClipSummary
+						borderRightWidth="1px"
+						borderColor="outline.500"
+						text="Some text to include in the da bubble. If the text must wrap this is what it might look like. See this link for details: https://www.ign.com. I might just keep going and dragging on with what I need to say here."
+					/>
+					<ThreadClipSummary borderTopWidth="1px" borderRightWidth="1px" borderColor="outline.500" />
+					<ThreadClipSummary borderTopWidth="1px" borderRightWidth="1px" borderColor="outline.500" />
+					<ThreadClipSummary borderTopWidth="1px" borderRightWidth="1px" borderColor="outline.500" />
 				</Stack>
 			</Stack>
 
