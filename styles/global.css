@@ -25,6 +25,10 @@ body {
 	background-color: #fcfcfc;
 	border: 1px solid #5b3214;
 }
+.thread-scroll {
+	scrollbar-color: #fcfcfc;
+	scrollbar-width: 0.5em;
+}
 @font-face {
 	font-family: 'NexaSlab-Bold';
 	src: url('/fonts/NexaSlab-Bold/font.woff2'), url('/fonts/NexaSlab-Bold/font.woff');

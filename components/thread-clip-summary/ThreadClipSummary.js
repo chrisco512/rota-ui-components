@@ -9,7 +9,15 @@ export default function ThreadClipSummary(props) {
 	const { text } = props;
 
 	return (
-		<Stack borderWidth="1px" borderColor="outline.500" maxW="420px" minW="300px" width="100%" {...props}>
+		<Stack
+			borderTopWidth="1px"
+			borderBottomWidth="1px"
+			borderColor="outline.500"
+			maxW="512px"
+			minW="300px"
+			width="100%"
+			{...props}
+		>
 			<Flex
 				flexDirection="column"
 				overflow="hidden"
@@ -23,7 +31,6 @@ export default function ThreadClipSummary(props) {
 				<Flex w="100%">
 					<Box w="64px" h="64px" bg="blue.500" rounded="lg" mr="2" flexShrink={0}>
 						<Avatar
-							style={{ width: '100%', height: '100%' }}
 							avatarStyle="Transparent"
 							topType="LongHairDreads"
 							accessoriesType="Blank"

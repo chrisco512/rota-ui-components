@@ -25,7 +25,7 @@ export default function Avatar({
 
 	return (
 		<svg
-			style={style}
+			style={{ height: '100%', width: '100%', ...style }}
 			width="264px"
 			height="280px"
 			viewBox="0 0 264 280"
