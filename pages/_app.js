@@ -34,10 +34,8 @@ export default function ThemedHome({ Component, pageProps }) {
 					<Flex flex="1" overflow="auto">
 						<Menu />
 						<Box flex="1" height="100%" overflow="auto">
-							<Flex justify="center">
-								<Box w={{ _: 'full', md: 'containers.md', lg: 'containers.md' }} p={4}>
-									<Component {...pageProps} />
-								</Box>
+							<Flex justify="center" height="100%">
+								<Component {...pageProps} />
 							</Flex>
 						</Box>
 					</Flex>
