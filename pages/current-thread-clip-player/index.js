@@ -1,0 +1,16 @@
+import Link from 'next/link';
+import { useState, useEffect } from 'react';
+import { Box, Heading, Stack } from '@chakra-ui/core';
+
+import { CurrentThreadClipPlayer } from '../../components/current-thread-clip-player';
+
+export default function Container() {
+	return (
+		<Box w={{ _: 'full', md: 'containers.md', lg: 'containers.md' }} p={4}>
+			<Heading as="h1" fontSize={7} fontFamily="slab" pt={12} pb={6}>
+				CurrentThreadClipPlayer
+			</Heading>
+			<CurrentThreadClipPlayer />
+		</Box>
+	);
+}
