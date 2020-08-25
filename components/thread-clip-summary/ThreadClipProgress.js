@@ -18,7 +18,6 @@ export default function ThreadClipProgress({ percentPlayed = 0, lengthInSeconds 
 					borderWidth="2px"
 					borderColor={textColor[colorMode]}
 					bg={progressBg[colorMode]}
-					isAnimated
 					value={percentPlayed}
 					height={3}
 				/>

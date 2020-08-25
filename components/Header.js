@@ -71,9 +71,10 @@ export default function Header({}) {
 					</MotionBox>
 					<Heading as="h1" fontSize={{ _: 6, md: 7 }} fontFamily="rust" ml={4}>
 						R<Text as="span" fontSize={{ _: 5, md: 6 }} fontFamily="rust">
-							ota<Text as="span" fontSize={{ _: 5, md: 6 }} fontFamily="rust">
-								.chat
-							</Text>
+							ota
+						</Text>
+						<Text as="span" fontSize={{ _: 5, md: 6 }} fontFamily="rust">
+							cast
 						</Text>
 					</Heading>
 				</Flex>
