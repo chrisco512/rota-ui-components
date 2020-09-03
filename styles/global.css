@@ -61,6 +61,10 @@ body {
 	scrollbar-color: #5b3214 transparent;
 	scrollbar-width: thin;
 }
+
+.audio-node-bg {
+	background-color: rebeccapurple;
+}
 @font-face {
 	font-family: 'NexaSlab-Bold';
 	src: url('/fonts/NexaSlab-Bold/font.woff2'), url('/fonts/NexaSlab-Bold/font.woff');
