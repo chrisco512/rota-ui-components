@@ -14,6 +14,7 @@ import Link from 'next/link';
 
 import 'video.js/dist/video-js.min.css';
 import 'videojs-wavesurfer/dist/css/videojs.wavesurfer.css';
+import '../styles/videojs-theme-rota.css';
 
 import { customTheme } from '../styles/theme';
 import Header from '../components/Header';

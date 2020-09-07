@@ -3,8 +3,6 @@ import { useState, useEffect } from 'react';
 import { Box, Heading, Stack } from '@chakra-ui/core';
 import dynamic from 'next/dynamic';
 
-// import { CurrentThreadClipPlayer } from '../../components/current-thread-clip-player';
-
 const CurrentThreadClipPlayer = dynamic(
 	() => {
 		return import('../../components/current-thread-clip-player');
