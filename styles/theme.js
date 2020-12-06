@@ -51,7 +51,9 @@ export const customTheme = {
 			'3': '#FFEAD0',
 		},
 		outline: {
+			'300': '#B86428',
 			'500': '#5B3214',
+			'700': '#43240F',
 		},
 		green: {
 			'500': '#D8F793',

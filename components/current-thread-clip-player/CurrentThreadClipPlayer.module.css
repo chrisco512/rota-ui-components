@@ -1,0 +1,21 @@
+.avatarContainer {
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	z-index: 10;
+	pointer-events: none;
+}
+
+.audioContainer {
+	position: relative;
+}
+
+.audioContainer wave {
+	height: 48px !important;
+}
+
+.audioNode {
+	background-color: white;
+}

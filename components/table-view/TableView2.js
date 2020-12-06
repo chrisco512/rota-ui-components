@@ -28,8 +28,9 @@ import {
 	PseudoBox,
 } from '@chakra-ui/core';
 import { FaWaveSquare, FaEllipsisV } from 'react-icons/fa';
-import { Fragment } from 'react';
+import { Fragment, createContext } from 'react';
 import { formatDistance, differenceInDays, format, differenceInHours, differenceInSeconds } from 'date-fns';
+import dynamic from 'next/dynamic';
 
 import Avatar from '../avatar';
 import { customTheme } from '../../styles/theme';
@@ -37,6 +38,19 @@ import { ThreadClipSummary, ThreadClipProgress } from '../thread-clip-summary';
 import { textColor } from '../../styles/theme';
 import { members, threads, queue } from './dummydata';
 import convertLengthInSecondsToText from '../../lib/convertLengthInSecondsToText';
+import { MediaProvider, useMedia } from '../../lib';
+
+const TestContext = createContext('default');
+TestContext.displayName = 'TestContextDisplayName';
+
+const CurrentThreadClipPlayer = dynamic(
+	() => {
+		return import('../current-thread-clip-player');
+	},
+	{ ssr: false }
+);
+
+import { CurrentClipBar } from '../current-clip-bar';
 
 function ThreadClipGridSummary({
 	authorName = 'Christopher Johnson',
@@ -448,23 +462,28 @@ function TableContent() {
 function CurrentThreadPanel() {
 	return (
 		<Stack bg="red.200" w="360px" spacing={0} borderRightWidth={3} borderColor="outline.500">
-			<Flex bg="white" height="202px" flexShrink={0} align="center" justify="center" flexDirection="column">
-				<Flex h={12} w="100%" bg="rgba(0,0,0,0.2)" pt={2} pb={2} justify="center" align="center">
-					<Box h="100%" w="100%" bg="rgba(0,0,0,0.5)" />
-				</Flex>
-				<Flex p={2} align="center" justify="center" flexDirection="column" flex={1}>
-					<Box h="96px" w="96px" borderRadius={8} bg="blue.500">
-						<Avatar />
-					</Box>
-					<Text fontSize={1} fontFamily="slab" color="outline.500" textAlign="left" mt={2}>
-						Christopher Johnson
-						<Text as="span" fontSize={0}>
-							@ChrisJo
-						</Text>
-					</Text>
-				</Flex>
-				<Progress w="100%" color="primary" bg="neutral.2" value={33} height={1} />
+			<Flex
+				bg="secondary.500"
+				align="center"
+				justify="center"
+				borderBottomWidth={1}
+				borderTopWidth={1}
+				borderColor="outline.500"
+			>
+				<Text
+					fontSize={2}
+					isTruncated
+					fontFamily="slab"
+					pt={3}
+					pb={2}
+					whiteSpace="nowrap"
+					color="outline.500"
+					textTransform="uppercase"
+				>
+					Current Clip
+				</Text>
 			</Flex>
+			<CurrentThreadClipPlayer />
 			<Flex
 				bg="secondary.500"
 				align="center"
@@ -565,24 +584,29 @@ export default function TableView(props) {
 	const { text } = props;
 
 	return (
-		<Flex
-			mr={8}
-			ml={8}
-			mb={8}
-			w="100%"
-			h="100%"
-			flexGrow={1}
-			borderColor="outline.500"
-			borderWidth={1}
-			overflow="hidden"
-		>
-			<CurrentThreadPanel />
-			<MainPanel>
-				<Breadcrumbs />
-				<TableTitle />
-				<TableContent />
-			</MainPanel>
-			<QueuePanel />
-		</Flex>
+		<MediaProvider>
+			<Stack
+				mr={8}
+				ml={8}
+				mb={8}
+				w="100%"
+				h="100%"
+				borderColor="outline.500"
+				borderWidth={1}
+				overflow="hidden"
+				spacing={0}
+			>
+				<Flex w="100%" flexGrow={1} overflow="hidden">
+					<CurrentThreadPanel />
+					<MainPanel>
+						<Breadcrumbs />
+						<TableTitle />
+						<TableContent />
+					</MainPanel>
+					<QueuePanel />
+				</Flex>
+				<CurrentClipBar />
+			</Stack>
+		</MediaProvider>
 	);
 }
