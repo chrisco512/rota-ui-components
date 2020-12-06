@@ -43,10 +43,27 @@ let options = {
 	},
 };
 
-// avatar info, name info, username, etc
-// clip length?
-// mechanism for changing clips
-export default function CurrentThreadClipPlayer() {
+// Note: Will need to set up useMedia hook to allow clips to be changed out
+// May need to wait for application development phase to set that up.
+export default function CurrentThreadClipPlayer({
+	authorName = 'Christopher Johnson',
+	mentionName = 'chrisjo',
+	avatar = {
+		topType: 'LongHairDreads',
+		accessoriesType: 'Blank',
+		hairColor: 'Red',
+		hatColor: 'Red',
+		facialHairType: 'BeardLight',
+		facialHairColor: 'BrownDark',
+		clotheType: 'BlazerShirt',
+		clotheColor: 'PastelRed',
+		graphicType: 'Deer',
+		eyeType: 'Squint',
+		eyebrowType: 'RaisedExcitedNatural',
+		mouthType: 'Smile',
+		skinColor: 'DarkBrown',
+	},
+}) {
 	const { player, dispatch } = useMedia();
 
 	useEffect(() => {
@@ -102,10 +119,10 @@ export default function CurrentThreadClipPlayer() {
 			<Box className={styles.audioContainer} bg="green.500" w="100%">
 				<Stack className={styles.avatarContainer} h="100%" w="100%" alignItems="center" justifyContent="center">
 					<Box h={20} w={20} bg="blue.500" borderRadius={5}>
-						<Avatar />
+						<Avatar {...avatar} />
 					</Box>
 					<Text fontFamily="slab" color="outline.500">
-						Christopher Johnson
+						{authorName}
 					</Text>
 				</Stack>
 			</Box>
