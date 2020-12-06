@@ -4,6 +4,49 @@ import Top from './top/Tops';
 import Accessories from './top/accessories/Accessories';
 import Skin from './Skin';
 
+function createFaceExpression(mouthType, eyeType, eyebrowType) {
+	return {
+		mouthType,
+		eyebrowType,
+		eyeType,
+	};
+}
+
+// TODO: factor in for 'natural' eyebrows
+export const faceExpressions = {
+	Default: createFaceExpression('Smile', 'Squint', 'RaisedExcitedNatural'),
+	Angry: createFaceExpression('Serious', 'DefaultEyes', 'AngryNatural'),
+	AngryGlare: createFaceExpression('Serious', 'Surprised', 'AngryNatural'),
+	Skeptical: createFaceExpression('Serious', 'Squint', 'UpDownNatural'),
+	Concerned: createFaceExpression('Concerned', 'Squint', 'FrownNatural'),
+	Disbelief: createFaceExpression('Disbelief', 'Surprised', 'RaisedExcitedNatural'),
+	Eating: createFaceExpression('Eating', 'DefaultEyes', 'RaisedNatural'),
+	Grimace: createFaceExpression('Grimace', 'DefaultEyes', 'DefaultNatural'),
+	Sad: createFaceExpression('Sad', 'Cry', 'RaisedExcited'),
+	Disgust: createFaceExpression('ScreamOpen', 'EyeRoll', 'SadConcerned'),
+	Dismay: createFaceExpression('ScreamOpen', 'Happy', 'FrownNatural'),
+	Horror: createFaceExpression('ScreamOpen', 'Surprised', 'RaisedExcitedNatural'),
+	Devious: createFaceExpression('Smile', 'EyeRoll', 'UnibrowNatural'),
+	BashfulHappy: createFaceExpression('Smile', 'Happy', 'DefaultNatural'),
+	Love: createFaceExpression('Smile', 'Hearts', 'RaisedExcited'),
+	Sarcastic: createFaceExpression('Smile', 'Side', 'UpDownNatural'),
+	Silly: createFaceExpression('Tongue', 'Squint', 'DefaultEyebrow'),
+	Peaceful: createFaceExpression('Twinkle', 'Close', 'DefaultEyebrow'),
+	Content: createFaceExpression('Twinkle', 'Happy', 'DefaultNatural'),
+	Grossed: createFaceExpression('Vomit', 'Surprised', 'FlatNatural'),
+	Sick: createFaceExpression('Vomit', 'Dizzy', 'SadConcerned'),
+	Wink: createFaceExpression('DefaultMouth', 'Wink', 'DefaultEyebrow'),
+	Serious: createFaceExpression('Serious', 'DefaultEyes', 'DefaultNatural'),
+};
+
+function getFaceExpression(expression) {
+	const faceExpression = faceExpressions[expression];
+	if (faceExpression) {
+		return faceExpression;
+	}
+	return faceExpressions['Default'];
+}
+
 export default function Avatar({
 	avatarStyle = 'transparent',
 	topType = 'LongHairDreads',
@@ -19,9 +62,17 @@ export default function Avatar({
 	eyebrowType = 'RaisedExcitedNatural',
 	mouthType = 'Smile',
 	skinColor = 'DarkBrown',
+	expression = 'Serious',
 	style,
 }) {
 	const circle = avatarStyle === 'circle' ? true : false;
+	const expressionProps = expression
+		? getFaceExpression(expression)
+		: {
+				mouthType,
+				eyeType,
+				eyebrowType,
+			};
 
 	return (
 		<svg
@@ -86,7 +137,7 @@ export default function Avatar({
 								/>
 							</g>
 							<Clothes clotheType={clotheType} clotheColor={clotheColor} graphicType={graphicType} />
-							<Face mouthType={mouthType} eyeType={eyeType} eyebrowType={eyebrowType} />
+							<Face {...expressionProps} />
 							<Top
 								topType={topType}
 								hairColor={hairColor}
