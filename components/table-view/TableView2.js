@@ -28,7 +28,7 @@ import {
 	PseudoBox,
 } from '@chakra-ui/core';
 import { FaWaveSquare, FaEllipsisV } from 'react-icons/fa';
-import { Fragment } from 'react';
+import { Fragment, createContext } from 'react';
 import { formatDistance, differenceInDays, format, differenceInHours, differenceInSeconds } from 'date-fns';
 import dynamic from 'next/dynamic';
 
@@ -38,6 +38,10 @@ import { ThreadClipSummary, ThreadClipProgress } from '../thread-clip-summary';
 import { textColor } from '../../styles/theme';
 import { members, threads, queue } from './dummydata';
 import convertLengthInSecondsToText from '../../lib/convertLengthInSecondsToText';
+import { MediaProvider, useMedia } from '../../lib';
+
+const TestContext = createContext('default');
+TestContext.displayName = 'TestContextDisplayName';
 
 const CurrentThreadClipPlayer = dynamic(
 	() => {
@@ -45,6 +49,8 @@ const CurrentThreadClipPlayer = dynamic(
 	},
 	{ ssr: false }
 );
+
+import { CurrentClipBar } from '../current-clip-bar';
 
 function ThreadClipGridSummary({
 	authorName = 'Christopher Johnson',
@@ -578,24 +584,29 @@ export default function TableView(props) {
 	const { text } = props;
 
 	return (
-		<Flex
-			mr={8}
-			ml={8}
-			mb={8}
-			w="100%"
-			h="100%"
-			flexGrow={1}
-			borderColor="outline.500"
-			borderWidth={1}
-			overflow="hidden"
-		>
-			<CurrentThreadPanel />
-			<MainPanel>
-				<Breadcrumbs />
-				<TableTitle />
-				<TableContent />
-			</MainPanel>
-			<QueuePanel />
-		</Flex>
+		<MediaProvider>
+			<Stack
+				mr={8}
+				ml={8}
+				mb={8}
+				w="100%"
+				h="100%"
+				borderColor="outline.500"
+				borderWidth={1}
+				overflow="hidden"
+				spacing={0}
+			>
+				<Flex w="100%" flexGrow={1} overflow="hidden">
+					<CurrentThreadPanel />
+					<MainPanel>
+						<Breadcrumbs />
+						<TableTitle />
+						<TableContent />
+					</MainPanel>
+					<QueuePanel />
+				</Flex>
+				<CurrentClipBar />
+			</Stack>
+		</MediaProvider>
 	);
 }

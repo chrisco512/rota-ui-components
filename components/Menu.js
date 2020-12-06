@@ -48,6 +48,7 @@ export function MenuList() {
 			<MenuComponentItem href="/table-view" text="TableView I" />
 			<MenuComponentItem href="/table-view-ii" text="TableView II" />
 			<MenuComponentItem href="/current-thread-clip-player" text="CurrentThreadClipPlayer" />
+			<MenuComponentItem href="/current-clip-bar" text="CurrentClipBar" />
 			<MenuComponentItem href="/motion" text="Motion" />
 		</Stack>
 	);

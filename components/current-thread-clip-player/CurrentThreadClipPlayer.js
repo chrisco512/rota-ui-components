@@ -13,38 +13,41 @@ import {
 	SliderThumb,
 } from '@chakra-ui/core';
 import videojs from 'video.js';
-import WaveSurfer from 'wavesurfer.js';
-import Wavesurfer from 'videojs-wavesurfer/dist/videojs.wavesurfer.js';
+import 'wavesurfer.js';
+import 'videojs-wavesurfer/dist/videojs.wavesurfer.js';
 
 import styles from './CurrentThreadClipPlayer.module.css';
 import { Avatar } from '../avatar';
+import { useMedia } from '../../lib';
 
+let options = {
+	controls: true,
+	autoplay: false,
+	loop: false,
+	fluid: true,
+	aspectRatio: '16:11',
+	controlBar: {
+		fullscreenToggle: false,
+	},
+	plugins: {
+		wavesurfer: {
+			backend: 'MediaElement',
+			displayMilliseconds: false,
+			debug: true,
+			progressColor: '#ed640b',
+			waveColor: '#5b3214',
+			cursorColor: '#333',
+			hideScrollbar: true,
+			barWidth: 2,
+		},
+	},
+};
+
+// avatar info, name info, username, etc
+// clip length?
+// mechanism for changing clips
 export default function CurrentThreadClipPlayer() {
-	let options = {
-		controls: true,
-		autoplay: false,
-		loop: false,
-		fluid: true,
-		aspectRatio: '16:11',
-		controlBar: {
-			fullscreenToggle: false,
-		},
-		plugins: {
-			wavesurfer: {
-				backend: 'MediaElement',
-				displayMilliseconds: false,
-				debug: true,
-				progressColor: '#ed640b',
-				waveColor: '#5b3214',
-				cursorColor: '#333',
-				hideScrollbar: true,
-				barWidth: 2,
-			},
-		},
-	};
-
-	const [ player, setPlayer ] = useState(null);
-	const [ timer, setTimer ] = useState(0);
+	const { player, dispatch } = useMedia();
 
 	useEffect(() => {
 		if (!player) {
@@ -69,33 +72,33 @@ export default function CurrentThreadClipPlayer() {
 			// });
 
 			newPlayer.on('timeupdate', (event) => {
-				setTimer(newPlayer.currentTime());
+				dispatch({
+					type: 'SET_TIMER',
+					payload: {
+						timer: newPlayer.currentTime(),
+					},
+				});
 			});
 
-			setPlayer(newPlayer);
+			dispatch({
+				type: 'SET_PLAYER',
+				payload: {
+					player: newPlayer,
+				},
+			});
 		}
 
-		return () => {
-			if (player) {
-				player.dispose();
-			}
+		// return () => {
+		// 	if (player) {
+		// 		player.dispose();
+		// 	}
 
-			setPlayer(null);
-		};
+		// 	setPlayer(null);
+		// };
 	}, []);
 
 	return (
 		<Box>
-			{/* <Slider
-				color="pink"
-				defaultValue={0}
-				value={player ? timer / player.duration() * 100 : 0}
-				onChange={(val) => player.currentTime(val / 100 * player.duration())}
-			>
-				<SliderTrack />
-				<SliderFilledTrack />
-				<SliderThumb />
-			</Slider> */}
 			<Box className={styles.audioContainer} bg="green.500" w="100%">
 				<Stack className={styles.avatarContainer} h="100%" w="100%" alignItems="center" justifyContent="center">
 					<Box h={20} w={20} bg="blue.500" borderRadius={5}>
