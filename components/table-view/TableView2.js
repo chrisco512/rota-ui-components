@@ -27,10 +27,11 @@ import {
 	IconButton,
 	PseudoBox,
 } from '@chakra-ui/core';
-import { FaWaveSquare, FaEllipsisV } from 'react-icons/fa';
-import { Fragment, createContext } from 'react';
+import { FaWaveSquare, FaEllipsisV, FaSort } from 'react-icons/fa';
+import { Fragment, createContext, useState } from 'react';
 import { formatDistance, differenceInDays, format, differenceInHours, differenceInSeconds } from 'date-fns';
 import dynamic from 'next/dynamic';
+import { Draggable, Droppable } from 'react-beautiful-dnd';
 
 import Avatar from '../avatar';
 import { customTheme } from '../../styles/theme';
@@ -297,6 +298,32 @@ function TableThreadItem({ thread = { title: 'Generic Table Thread Item', dateCr
 	);
 }
 
+function DraggableQueueItem({ threadTitle }) {
+	return (
+		<Fragment>
+			<Flex align="center">
+				<Icon color="gray.300" name="up-down" size="1.25em" />
+				<Stack overflow="hidden" spacing={0} w="100%">
+					<Flex textAlign="left" ml={3} color="outline.500">
+						<Text flexGrow={1} fontSize={0} fontFamily="bold" textTransform="uppercase" lineHeight={2}>
+							Crypto Chat II
+						</Text>
+
+						<Text fontSize={0} fontFamily="bold" lineHeight={2}>
+							2m30s
+						</Text>
+					</Flex>
+					<Flex textAlign="left" ml={3} overflow="hidden">
+						<Text flexGrow={1} isTruncated fontFamily="book" fontSize={1} lineHeight={2}>
+							{threadTitle}
+						</Text>
+					</Flex>
+				</Stack>
+			</Flex>
+		</Fragment>
+	);
+}
+
 function QueueItem({ threadTitle, threadClips }) {
 	return (
 		<Fragment>
@@ -528,6 +555,8 @@ function MainPanel({ children }) {
 }
 
 function QueuePanel() {
+	const [ editingMode, setEditingMode ] = useState(false);
+
 	return (
 		<Stack w="360px" overflow="hidden" spacing={0} borderLeftWidth={3} borderColor="outline.500" flexShrink={0}>
 			<Flex
@@ -547,6 +576,7 @@ function QueuePanel() {
 					whiteSpace="nowrap"
 					color="outline.500"
 					textTransform="uppercase"
+					onClick={() => setEditingMode(!editingMode)}
 				>
 					Queue
 				</Text>
@@ -554,19 +584,50 @@ function QueuePanel() {
 			<Box overflowY="auto" className="thread-scroll" flex={1}>
 				<Box minH="100%" borderRightWidth="1px" borderColor="outline.500">
 					<Stack spacing={0}>
-						<Accordion allowToggle>
-							{queue.map((thread, index) => (
-								<AccordionItem
-									borderTopColor="outline.500"
-									borderBottomColor="outline.500"
-									borderTopWidth={index === 0 ? 0 : '1px'}
-									borderColor="outline.500"
-									key={index}
-								>
-									<QueueItem threadTitle={thread.title} threadClips={thread.clips} />
-								</AccordionItem>
-							))}
-						</Accordion>
+						{editingMode && (
+							<Droppable droppableId="queue-droppable">
+								{(provided, snapshot) => (
+									<div {...provided.droppableProps} ref={provided.innerRef}>
+										{queue.map((thread, index) => (
+											<Draggable key={thread.id} draggableId={thread.id} index={index}>
+												{(provided, snapshot) => (
+													<Box
+														borderTopColor="outline.500"
+														borderBottomColor="outline.500"
+														borderTopWidth={index === 0 ? 0 : '1px'}
+														borderColor="outline.500"
+														pl={4}
+														pr={4}
+														pt={2}
+														pb={2}
+														bg="white"
+														ref={provided.innerRef}
+														{...provided.draggableProps}
+														{...provided.dragHandleProps}
+													>
+														<DraggableQueueItem threadTitle={thread.title} />
+													</Box>
+												)}
+											</Draggable>
+										))}
+									</div>
+								)}
+							</Droppable>
+						)}
+						{!editingMode && (
+							<Accordion allowToggle>
+								{queue.map((thread, index) => (
+									<AccordionItem
+										borderTopColor="outline.500"
+										borderBottomColor="outline.500"
+										borderTopWidth={index === 0 ? 0 : '1px'}
+										borderColor="outline.500"
+									>
+										<QueueItem threadTitle={thread.title} threadClips={thread.clips} />
+									</AccordionItem>
+								))}
+							</Accordion>
+						)}
 						<Box p={3}>
 							<Text fontFamily="slab" color="outline.500" textAlign="center">
 								End of Queue

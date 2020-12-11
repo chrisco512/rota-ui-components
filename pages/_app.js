@@ -11,6 +11,8 @@ import {
 } from '@chakra-ui/core';
 import Head from 'next/head';
 import Link from 'next/link';
+import { useCallback } from 'react';
+import { DragDropContext } from 'react-beautiful-dnd';
 
 import 'video.js/dist/video-js.min.css';
 import 'videojs-wavesurfer/dist/css/videojs.wavesurfer.css';
@@ -23,28 +25,34 @@ import Menu from '../components/Menu';
 import '../styles/global.css';
 
 export default function ThemedHome({ Component, pageProps }) {
+	const onDragEnd = useCallback((result, provided) => {
+		console.log('Just ended the drag', { result, provided });
+	});
+
 	return (
-		<ThemeProvider theme={customTheme}>
-			<ColorModeProvider>
-				<CSSReset />
+		<DragDropContext onDragEnd={onDragEnd}>
+			<ThemeProvider theme={customTheme}>
+				<ColorModeProvider>
+					<CSSReset />
 
-				<Head>
-					<title>Rota.chat UI</title>
-					<link rel="icon" href="/favicon.ico" />
-				</Head>
+					<Head>
+						<title>Rota.chat UI</title>
+						<link rel="icon" href="/favicon.ico" />
+					</Head>
 
-				<Flex flexDirection="column" height="100vh">
-					<Header />
-					<Flex flex="1" overflow="auto">
-						<Menu />
-						<Box flex="1" height="100%" overflow="auto">
-							<Flex justify="center" height="100%">
-								<Component {...pageProps} />
-							</Flex>
-						</Box>
+					<Flex flexDirection="column" height="100vh">
+						<Header />
+						<Flex flex="1" overflow="auto">
+							<Menu />
+							<Box flex="1" height="100%" overflow="auto">
+								<Flex justify="center" height="100%">
+									<Component {...pageProps} />
+								</Flex>
+							</Box>
+						</Flex>
 					</Flex>
-				</Flex>
-			</ColorModeProvider>
-		</ThemeProvider>
+				</ColorModeProvider>
+			</ThemeProvider>
+		</DragDropContext>
 	);
 }
