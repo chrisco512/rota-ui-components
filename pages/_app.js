@@ -25,34 +25,28 @@ import Menu from '../components/Menu';
 import '../styles/global.css';
 
 export default function ThemedHome({ Component, pageProps }) {
-	const onDragEnd = useCallback((result, provided) => {
-		console.log('Just ended the drag', { result, provided });
-	});
-
 	return (
-		<DragDropContext onDragEnd={onDragEnd}>
-			<ThemeProvider theme={customTheme}>
-				<ColorModeProvider>
-					<CSSReset />
+		<ThemeProvider theme={customTheme}>
+			<ColorModeProvider>
+				<CSSReset />
 
-					<Head>
-						<title>Rota.chat UI</title>
-						<link rel="icon" href="/favicon.ico" />
-					</Head>
+				<Head>
+					<title>Rota.chat UI</title>
+					<link rel="icon" href="/favicon.ico" />
+				</Head>
 
-					<Flex flexDirection="column" height="100vh">
-						<Header />
-						<Flex flex="1" overflow="auto">
-							<Menu />
-							<Box flex="1" height="100%" overflow="auto">
-								<Flex justify="center" height="100%">
-									<Component {...pageProps} />
-								</Flex>
-							</Box>
-						</Flex>
+				<Flex flexDirection="column" height="100vh">
+					<Header />
+					<Flex flex="1" overflow="auto">
+						<Menu />
+						<Box flex="1" height="100%" overflow="auto">
+							<Flex justify="center" height="100%">
+								<Component {...pageProps} />
+							</Flex>
+						</Box>
 					</Flex>
-				</ColorModeProvider>
-			</ThemeProvider>
-		</DragDropContext>
+				</Flex>
+			</ColorModeProvider>
+		</ThemeProvider>
 	);
 }

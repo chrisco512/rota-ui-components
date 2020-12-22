@@ -1,6 +1,6 @@
 import { useColorMode, Flex, Text, Box } from '@chakra-ui/core';
 
-export default function ThreadClipText({ text }) {
+export default function CurrentThreadClipItemText({ text }) {
 	const { colorMode } = useColorMode();
 	const bubbleBgColor = { light: 'neutral.3', dark: 'neutral.3' };
 	const bubbleTextColor = { light: 'outline.500', dark: 'outline.500' };

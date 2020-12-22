@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import {
 	Box,
-	Heading,
 	Stack,
 	Text,
 	Flex,
@@ -12,15 +11,7 @@ import {
 	SliderThumb,
 	IconButton,
 } from '@chakra-ui/core';
-import {
-	FaRegPlayCircle,
-	FaRedoAlt,
-	FaRedo,
-	FaUndoAlt,
-	FaUndo,
-	FaMicrophoneAlt,
-	FaRegPauseCircle,
-} from 'react-icons/fa';
+import { FaRegPlayCircle, FaRedo, FaUndo, FaMicrophoneAlt, FaRegPauseCircle } from 'react-icons/fa';
 
 import { Avatar } from '../avatar';
 import { textColor } from '../../styles/theme';

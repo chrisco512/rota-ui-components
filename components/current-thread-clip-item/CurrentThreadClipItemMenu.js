@@ -3,7 +3,7 @@ import { FaEllipsisV } from 'react-icons/fa';
 
 import { textColor } from '../../styles/theme';
 
-export default function ThreadClipMenu() {
+export default function CurrentThreadClipItemMenu() {
 	const { colorMode } = useColorMode();
 
 	return (

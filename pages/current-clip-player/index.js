@@ -7,7 +7,7 @@ import { MediaProvider } from '../../lib';
 
 const CurrentThreadClipPlayer = dynamic(
 	() => {
-		return import('../../components/current-thread-clip-player');
+		return import('../../components/current-clip-player');
 	},
 	{ ssr: false }
 );
@@ -17,7 +17,7 @@ export default function Container() {
 		<MediaProvider>
 			<Box w={{ _: 'full', md: 'containers.md', lg: 'containers.md' }} p={4}>
 				<Heading as="h1" fontSize={7} fontFamily="slab" pt={12} pb={6}>
-					CurrentThreadClipPlayer
+					CurrentClipPlayer
 				</Heading>
 				<CurrentThreadClipPlayer />
 			</Box>
