@@ -43,11 +43,10 @@ export function MenuList() {
 	return (
 		<Stack justify="center" align="center">
 			<MenuSubHeading text="Components" />
-			<MenuComponentItem href="/thread-clip-summary" text="ThreadClipSummary" />
+			<MenuComponentItem href="/current-thread-clip-item" text="CurrentThreadClipItem" />
 			<MenuComponentItem href="/avatar" text="Avatar" />
-			<MenuComponentItem href="/table-view" text="TableView I" />
-			<MenuComponentItem href="/table-view-ii" text="TableView II" />
-			<MenuComponentItem href="/current-thread-clip-player" text="CurrentThreadClipPlayer" />
+			<MenuComponentItem href="/site-content-layout" text="SiteContentLayout" />
+			<MenuComponentItem href="/current-clip-player" text="CurrentClipPlayer" />
 			<MenuComponentItem href="/current-clip-bar" text="CurrentClipBar" />
 			<MenuComponentItem href="/motion" text="Motion" />
 		</Stack>

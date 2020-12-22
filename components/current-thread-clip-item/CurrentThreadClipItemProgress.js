@@ -3,7 +3,12 @@ import { useColorMode, Flex, LightMode, Progress, Text } from '@chakra-ui/core';
 import { textColor } from '../../styles/theme';
 import { convertLengthInSecondsToText } from '../../lib';
 
-export default function ThreadClipProgress({ percentPlayed = 0, lengthInSeconds = 0, showSeconds = true, w = '80%' }) {
+export default function CurrentThreadClipItemProgress({
+	percentPlayed = 0,
+	lengthInSeconds = 0,
+	showSeconds = true,
+	w = '80%',
+}) {
 	const { colorMode } = useColorMode();
 	const progressBg = { light: 'neutral.2', dark: 'white' };
 

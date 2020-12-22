@@ -1,22 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import {
-	Box,
-	Flex,
-	Stack,
-	useColorMode,
-	Grid,
-	Text,
-	Button,
-	Slider,
-	SliderTrack,
-	SliderFilledTrack,
-	SliderThumb,
-} from '@chakra-ui/core';
+import React, { useEffect } from 'react';
+import { Box, Stack, Text } from '@chakra-ui/core';
 import videojs from 'video.js';
 import 'wavesurfer.js';
 import 'videojs-wavesurfer/dist/videojs.wavesurfer.js';
 
-import styles from './CurrentThreadClipPlayer.module.css';
+import styles from './CurrentClipPlayer.module.css';
 import { Avatar } from '../avatar';
 import { useMedia } from '../../lib';
 
@@ -45,7 +33,7 @@ let options = {
 
 // Note: Will need to set up useMedia hook to allow clips to be changed out
 // May need to wait for application development phase to set that up.
-export default function CurrentThreadClipPlayer({
+export default function CurrentClipPlayer({
 	authorName = 'Christopher Johnson',
 	mentionName = 'chrisjo',
 	avatar = {

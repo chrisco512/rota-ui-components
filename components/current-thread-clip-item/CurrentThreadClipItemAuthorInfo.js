@@ -1,7 +1,10 @@
 import { useColorMode, Flex, Text } from '@chakra-ui/core';
 import { textColor } from '../../styles/theme';
 
-export default function ThreadClipAuthorInfo({ authorName = 'Christopher Johnson', mentionName = 'ChrisJo' }) {
+export default function CurrentThreadClipItemAuthorInfo({
+	authorName = 'Christopher Johnson',
+	mentionName = 'ChrisJo',
+}) {
 	const { colorMode } = useColorMode();
 
 	return (

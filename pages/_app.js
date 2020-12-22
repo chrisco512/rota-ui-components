@@ -11,6 +11,8 @@ import {
 } from '@chakra-ui/core';
 import Head from 'next/head';
 import Link from 'next/link';
+import { useCallback } from 'react';
+import { DragDropContext } from 'react-beautiful-dnd';
 
 import 'video.js/dist/video-js.min.css';
 import 'videojs-wavesurfer/dist/css/videojs.wavesurfer.css';

@@ -2,7 +2,7 @@ import { useColorMode, Flex, Text } from '@chakra-ui/core';
 
 import { textColor } from '../../styles/theme';
 
-export default function ThreadClipMeta() {
+export default function CurrentThreadClipItemMeta() {
 	const { colorMode } = useColorMode();
 
 	return (

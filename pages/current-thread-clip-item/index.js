@@ -1,16 +1,16 @@
 import { Button, Box, Flex, useColorMode, Heading } from '@chakra-ui/core';
 import { useState } from 'react';
 
-import { ThreadClipSummary } from '../../components/thread-clip-summary';
+import { CurrentThreadClipItem } from '../../components/current-thread-clip-item';
 
-export default function ThreadClipSummaryPage() {
+export default function CurrentThreadClipItemPage() {
 	const { colorMode, toggleColorMode } = useColorMode();
 	const [ text, setText ] = useState('');
 
 	return (
 		<Box w={{ _: 'full', md: 'containers.md', lg: 'containers.md' }} p={4}>
 			<Heading as="h1" fontSize={7} fontFamily="slab" pt={12} pb={6}>
-				ThreadClipSummary
+				CurrentThreadClipItem
 			</Heading>
 			<Button
 				onClick={() => {
@@ -23,7 +23,7 @@ export default function ThreadClipSummaryPage() {
 			>
 				Toggle Text
 			</Button>
-			<ThreadClipSummary text={text} />
+			<CurrentThreadClipItem text={text} />
 		</Box>
 	);
 }
