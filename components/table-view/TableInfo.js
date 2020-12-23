@@ -4,7 +4,7 @@ import Avatar from '../avatar';
 
 function TableInfo() {
 	return (
-		<Box flexShrink={0} w="33%">
+		<Box maxW="160px" flex={1} mr={3}>
 			<Text as="h4" fontFamily="slab" fontSize={4} color="outline.500">
 				Members
 			</Text>
