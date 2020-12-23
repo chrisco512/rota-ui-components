@@ -1,4 +1,4 @@
-import { Flex, Stack, useColorMode } from '@chakra-ui/core';
+import { Flex, Stack, useColorMode, Box } from '@chakra-ui/core';
 
 import { MediaProvider } from '../../lib';
 import { CurrentClipBar } from '../current-clip-bar';
@@ -9,8 +9,26 @@ import { Breadcrumbs } from '.';
 
 function MainPanel({ children }) {
 	return (
-		<Flex flexGrow={1} height="100%" pl={5} pr={5} pt={6} pb={5} flexDirection="column" overflowY="auto">
-			{children}
+		<Flex
+			flexGrow={1}
+			height="100%"
+			flexDirection="column"
+			overflowY="auto"
+			overflowX="hidden"
+			className="main-scroll"
+		>
+			<Flex
+				flex={1}
+				flexDirection="column"
+				borderRightWidth="1px"
+				borderColor="outline.500"
+				pl={5}
+				pr={5}
+				pt={6}
+				pb={5}
+			>
+				{children}
+			</Flex>
 		</Flex>
 	);
 }

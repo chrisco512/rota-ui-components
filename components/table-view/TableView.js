@@ -1,7 +1,7 @@
 import { Fragment } from 'react';
 import { Text } from '@chakra-ui/core';
 
-import { TableThreads } from '.';
+import { TableContent } from '.';
 
 function TableTitle() {
 	return (
@@ -15,7 +15,7 @@ export default function TableView() {
 	return (
 		<Fragment>
 			<TableTitle />
-			<TableThreads />
+			<TableContent />
 		</Fragment>
 	);
 }
