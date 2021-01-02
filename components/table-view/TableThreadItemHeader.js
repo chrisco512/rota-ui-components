@@ -1,4 +1,4 @@
-import { Box, Text, AccordionIcon } from '@chakra-ui/core';
+import { Box, Text, AccordionIcon } from '@chakra-ui/react';
 import { Fragment } from 'react';
 import { format, differenceInHours, differenceInSeconds } from 'date-fns';
 import convertLengthInSecondsToText from '../../lib/convertLengthInSecondsToText';

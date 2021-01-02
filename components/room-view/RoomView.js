@@ -1,5 +1,5 @@
 import { Fragment } from 'react';
-import { Text, Grid, Tag, TagLabel, Stack, Flex, Box, PseudoBox, IconButton, Icon } from '@chakra-ui/core';
+import { Text, Grid, Tag, TagLabel, Stack, Flex, Box, IconButton, Icon } from '@chakra-ui/react';
 import { FaPlay, FaPlus, FaRegEye, FaRegClock } from 'react-icons/fa';
 
 import Avatar from '../avatar';
@@ -21,10 +21,10 @@ function RoomTableItemActionButtons() {
 				w={6}
 				minW={0}
 				variant="outline"
-				variantColor="primary.300"
+				colorScheme="primary"
 				borderRadius={3}
 				aria-label="Quick Play"
-				icon={FaPlay}
+				icon={<FaPlay />}
 				color="primary.300"
 			/>
 			<IconButton
@@ -32,10 +32,10 @@ function RoomTableItemActionButtons() {
 				w={6}
 				minW={0}
 				variant="outline"
-				variantColor="primary.300"
+				colorScheme="primary"
 				borderRadius={3}
 				aria-label="Quick Add"
-				icon={FaPlus}
+				icon={<FaPlus />}
 				color="primary.300"
 			/>
 		</Stack>
@@ -50,7 +50,7 @@ function RoomTableItemInfo() {
 					{`Crypto Chat - `}
 				</Text>
 				<Text fontFamily="book" fontSize={1}>
-					<Tag size="sm" rounded="full" variant="solid" variantColor="primary">
+					<Tag size="sm" rounded="full" variant="solid" colorScheme="primary">
 						<TagLabel>№ 234</TagLabel>
 					</Tag>
 				</Text>
@@ -112,13 +112,13 @@ function RoomTableItemMeta() {
 	return (
 		<Stack spacing={1} mr={3}>
 			<Flex h={6} align="center">
-				<Box mr={2} size={4} as={FaRegClock} color="outline.500" />
+				<Box mr={2} w={4} h={4} as={FaRegClock} color="outline.500" />
 				<Text fontFamily="book" fontSize={1}>
 					2m ago
 				</Text>
 			</Flex>
 			<Flex h={6} align="center">
-				<Box mr={2} size={4} as={FaRegEye} color="outline.500" />
+				<Box mr={2} w={4} h={4} as={FaRegEye} color="outline.500" />
 				<Text fontFamily="book" fontSize={1}>
 					3
 				</Text>

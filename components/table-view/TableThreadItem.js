@@ -1,4 +1,4 @@
-import { Box, Flex, Text, AccordionHeader, AccordionPanel, PseudoBox } from '@chakra-ui/core';
+import { Box, Flex, Text, AccordionButton, AccordionPanel } from '@chakra-ui/react';
 import { FaPlay, FaPlus } from 'react-icons/fa';
 import { Fragment } from 'react';
 
@@ -14,22 +14,24 @@ function TableThreadItem({ thread = { title: 'Generic Table Thread Item', dateCr
 
 	return (
 		<Fragment>
-			<AccordionHeader
-				zIndex={9000}
-				borderColor="outline.500"
-				_expanded={{
-					borderLeftWidth: 1,
-					borderRightWidth: 1,
-					backgroundColor: customTheme.colors.neutral['3'],
-				}}
-				_focus={{ backgroundColor: customTheme.colors.neutral['3'] }}
-			>
-				<TableThreadItemHeader
-					title={title}
-					lastPosted={clips.length > 0 ? clips[0].datePosted : new Date()}
-					threadLengthInSeconds={threadLengthInSeconds}
-				/>
-			</AccordionHeader>
+			<h3>
+				<AccordionButton
+					zIndex={9000}
+					borderColor="outline.500"
+					_expanded={{
+						borderLeftWidth: 1,
+						borderRightWidth: 1,
+						backgroundColor: customTheme.colors.neutral['3'],
+					}}
+					_focus={{ backgroundColor: customTheme.colors.neutral['3'] }}
+				>
+					<TableThreadItemHeader
+						title={title}
+						lastPosted={clips.length > 0 ? clips[0].datePosted : new Date()}
+						threadLengthInSeconds={threadLengthInSeconds}
+					/>
+				</AccordionButton>
+			</h3>
 			<AccordionPanel
 				pb={0}
 				pt={0}
@@ -57,7 +59,7 @@ function TableThreadItem({ thread = { title: 'Generic Table Thread Item', dateCr
 					borderBottomWidth={1}
 					borderColor="gray.300"
 				>
-					<PseudoBox
+					<Box
 						as="button"
 						pt={1}
 						pb={1}
@@ -71,13 +73,13 @@ function TableThreadItem({ thread = { title: 'Generic Table Thread Item', dateCr
 						}}
 					>
 						<Flex justify="center" align="center">
-							<Box as={FaPlay} size={3} color="outline.500" mr={2} />
+							<Box as={FaPlay} h={3} w={3} color="outline.500" mr={2} />
 							<Text fontSize={1} fontFamily="book" color="outline.500">
 								Play Now
 							</Text>
 						</Flex>
-					</PseudoBox>
-					<PseudoBox
+					</Box>
+					<Box
 						as="button"
 						pt={1}
 						pb={1}
@@ -90,12 +92,12 @@ function TableThreadItem({ thread = { title: 'Generic Table Thread Item', dateCr
 						}}
 					>
 						<Flex justify="center" align="center">
-							<Box as={FaPlus} size={3} color="outline.500" mr={2} />
+							<Box as={FaPlus} h={3} w={3} color="outline.500" mr={2} />
 							<Text fontSize={1} fontFamily="book" color="outline.500">
 								Play Last
 							</Text>
 						</Flex>
-					</PseudoBox>
+					</Box>
 				</Flex>
 				<TableThreadClipListHeader />
 				{clips.map((clip) => {

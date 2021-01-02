@@ -1,4 +1,4 @@
-import { Box, Flex, Stack, useColorMode } from '@chakra-ui/core';
+import { Box, Flex, Stack, useColorMode } from '@chakra-ui/react';
 import Avatar from '../avatar';
 
 import {

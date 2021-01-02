@@ -1,4 +1,4 @@
-import { useColorMode, Flex, Text, Box } from '@chakra-ui/core';
+import { useColorMode, Flex, Text, Box } from '@chakra-ui/react';
 
 export default function CurrentThreadClipItemText({ text }) {
 	const { colorMode } = useColorMode();

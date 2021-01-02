@@ -10,7 +10,7 @@ import {
 	SliderTrack,
 	SliderThumb,
 	IconButton,
-} from '@chakra-ui/core';
+} from '@chakra-ui/react';
 import { FaRegPlayCircle, FaRedo, FaUndo, FaMicrophoneAlt, FaRegPauseCircle } from 'react-icons/fa';
 
 import { Avatar } from '../avatar';
@@ -38,9 +38,9 @@ export default function CurrentClipBar({ authorName = 'Christopher Johnson', men
 				</Text>
 			</Stack>
 			<Flex flexGrow="1" justify="center" align="center" h="100%">
-				<Flex mr={5} ml={5}>
+				<Flex mr={5} ml={5} align="center">
 					<IconButton
-						icon={FaUndo}
+						icon={<FaUndo />}
 						onClick={() => {
 							const calculatedTime = player.currentTime() - 7;
 							if (calculatedTime < 0) {
@@ -49,32 +49,38 @@ export default function CurrentClipBar({ authorName = 'Christopher Johnson', men
 							player.currentTime(calculatedTime);
 						}}
 						variant="ghost"
-						variantColor="outline"
+						colorScheme="outline"
 						fontSize="32px"
-						mr={4}
+						h={12}
+						w={12}
 					/>
 					<IconButton
-						icon={player ? !player.paused() ? FaRegPauseCircle : FaRegPlayCircle : FaRegPlayCircle}
+						icon={
+							player ? !player.paused() ? <FaRegPauseCircle /> : <FaRegPlayCircle /> : <FaRegPlayCircle />
+						}
 						onClick={() => (player.paused() ? player.play() : player.pause())}
 						variant="ghost"
-						variantColor="outline"
+						colorScheme="outline"
 						fontSize="48px"
-						mr={4}
+						h={16}
+						w={16}
 					/>
 					<IconButton
-						icon={FaRedo}
+						icon={<FaRedo />}
 						onClick={() => player.currentTime(player.currentTime() + 7)}
 						variant="ghost"
-						variantColor="outline"
+						colorScheme="outline"
 						fontSize="32px"
+						h={12}
+						w={12}
 					/>
 				</Flex>
 				<Flex flexGrow="1" maxW={512}>
-					<Text color="outline.500" mr={2}>
-						{`${player ? Math.floor(timer) : 0}s`}
+					<Text color="outline.500" mr={4} w={16} textAlign="right">
+						{`${player && timer ? Math.floor(timer) : 0}s`}
 					</Text>
 					<Slider
-						color="primary"
+						colorScheme="primary"
 						defaultValue={30}
 						mr={2}
 						value={player ? player.currentTime() / player.duration() * 100 : 0}
@@ -82,22 +88,25 @@ export default function CurrentClipBar({ authorName = 'Christopher Johnson', men
 							if (!player) return;
 							player.currentTime(val / 100 * player.duration());
 						}}
+						minW={64}
 					>
-						<SliderTrack
-							h={3}
-							borderRadius={5}
-							bg="outline.500"
-							borderColor="outline.500"
-							borderWidth={2}
-						/>
-						<SliderFilledTrack h={3} borderRadius={5} borderColor="outline.500" borderWidth={2} />
-						<SliderThumb size={6} bg="white" borderColor="outline.500" borderWidth={2} />
+						<SliderTrack h={3} borderRadius={5} bg="outline.500" borderColor="outline.500" borderWidth={2}>
+							<SliderFilledTrack />
+						</SliderTrack>
+						<SliderThumb boxSize={6} bg="white" borderColor="outline.500" borderWidth={2} />
 					</Slider>
-					<Text color="outline.500">{`${player ? Math.floor(player.duration()) : 0}s`}</Text>
+					<Text color="outline.500" w={16} ml={4}>{`${player ? Math.floor(player.duration()) : 0}s`}</Text>
 				</Flex>
 			</Flex>
 			<Stack align="center" justify="center" spacing={1} mr={2} ml={2} h="100%">
-				<IconButton icon={FaMicrophoneAlt} variant="ghost" variantColor="outline" fontSize="48px" />
+				<IconButton
+					icon={<FaMicrophoneAlt />}
+					variant="ghost"
+					colorScheme="outline"
+					w={16}
+					h={16}
+					fontSize="48px"
+				/>
 			</Stack>
 		</Flex>
 	);

@@ -1,4 +1,4 @@
-import { Box, Stack, Heading, PseudoBox, useColorMode, Text } from '@chakra-ui/core';
+import { Box, Stack, Heading, useColorMode, Text } from '@chakra-ui/react';
 
 import RotaLink from './RotaLink';
 
@@ -9,18 +9,11 @@ function MenuComponentItem({ href, text, ...props }) {
 	const { colorMode } = useColorMode();
 
 	return (
-		<PseudoBox
-			as="button"
-			variant="link"
-			lineHeight="2"
-			_hover={{ bg: linkBgColor[colorMode] }}
-			w="100%"
-			{...props}
-		>
+		<Box as="button" variant="link" lineHeight="2" _hover={{ bg: linkBgColor[colorMode] }} w="100%" {...props}>
 			<RotaLink href={href}>
 				<Text fontFamily="book">{text}</Text>
 			</RotaLink>
-		</PseudoBox>
+		</Box>
 	);
 }
 
@@ -58,7 +51,7 @@ export default function Menu() {
 	const { colorMode } = useColorMode();
 
 	return (
-		<Box w={64} h="100%" bg={menuBgColor[colorMode]} display={{ _: 'none', lg: 'block' }} overflow="auto" pt={8}>
+		<Box w={64} h="100%" bg={menuBgColor[colorMode]} display={{ base: 'none', lg: 'block' }} overflow="auto" pt={8}>
 			<MenuList />
 		</Box>
 	);

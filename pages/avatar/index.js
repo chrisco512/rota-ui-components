@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Box, Heading, Text, Flex, IconButton, Stack } from '@chakra-ui/core';
+import { Box, Heading, Text, Flex, IconButton, Stack } from '@chakra-ui/react';
 import { FaMinus, FaPlus } from 'react-icons/fa';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { okaidia } from 'react-syntax-highlighter/dist/esm/styles/prism';
@@ -200,25 +200,25 @@ function Selector({ optionName, optionIndex, setOption, optionsArray }) {
 				pr={3}
 				textTransform="uppercase"
 				letterSpacing="wide"
-				w={{ _: 'auto', lg: '128px' }}
+				w={{ base: 'auto', lg: '128px' }}
 			>
 				{optionName}
 			</Text>
 			<IconButton
 				aria-label="Decrement option"
-				icon={FaMinus}
+				icon={<FaMinus />}
 				size="lg"
 				variant="outline"
 				onClick={() => setOption(decrementOption(optionIndex, optionsArray))}
 			/>
-			<Flex justify="center" align="center" w={{ _: '128px' }}>
+			<Flex justify="center" align="center" w={{ base: '128px' }}>
 				<Text textAlign="center" fontFamily="mono" isTruncated>
 					{optionsArray[optionIndex]}
 				</Text>
 			</Flex>
 			<IconButton
 				aria-label="Increment option"
-				icon={FaPlus}
+				icon={<FaPlus />}
 				size="lg"
 				variant="outline"
 				onClick={() => setOption(incrementOption(optionIndex, optionsArray))}
@@ -243,12 +243,12 @@ export default function AvatarPage() {
 	const [ skinColorIndex, setSkinColorIndex ] = useState(5);
 
 	return (
-		<Box w={{ _: 'full', md: 'containers.md', lg: 'containers.md' }} p={4}>
+		<Box w={{ base: 'full', md: 'containers.md', lg: 'containers.md' }} p={4}>
 			<Heading as="h1" fontSize={7} fontFamily="slab" pt={12} pb={6}>
 				Avatar
 			</Heading>
-			<Flex flexDirection={{ _: 'column', lg: 'row' }} align="center">
-				<Box mb={{ _: 3, lg: 0 }} pr={{ _: 0, lg: 3 }}>
+			<Flex flexDirection={{ base: 'column', lg: 'row' }} align="center">
+				<Box mb={{ base: 3, lg: 0 }} pr={{ base: 0, lg: 3 }}>
 					<Avatar
 						eyeType={eyeOptions[eyeIndex]}
 						eyebrowType={eyebrowOptions[eyebrowIndex]}
@@ -367,7 +367,15 @@ export default function AvatarPage() {
 					`}
 				</SyntaxHighlighter>
 			</Box>
-			<Box bg="green.500" h={32} w={32} pos="absolute" bottom={3} right={6} display={{ _: 'block', lg: 'none' }}>
+			<Box
+				bg="green.500"
+				h={32}
+				w={32}
+				pos="absolute"
+				bottom={3}
+				right={6}
+				display={{ base: 'block', lg: 'none' }}
+			>
 				<Avatar
 					style={{ height: '100%', width: '100%' }}
 					eyeType={eyeOptions[eyeIndex]}

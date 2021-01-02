@@ -1,5 +1,5 @@
 import { Fragment } from 'react';
-import { Text } from '@chakra-ui/core';
+import { Text } from '@chakra-ui/react';
 
 import { TableContent } from '.';
 

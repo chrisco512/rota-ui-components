@@ -1,14 +1,15 @@
 import {
 	ThemeProvider,
+	ChakraProvider,
 	CSSReset,
 	ColorModeProvider,
-	Box,
 	Text,
 	Flex,
 	Stack,
 	Heading,
-	PseudoBox,
-} from '@chakra-ui/core';
+	Box,
+	ColorModeScript,
+} from '@chakra-ui/react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { useCallback } from 'react';
@@ -26,27 +27,23 @@ import '../styles/global.css';
 
 export default function ThemedHome({ Component, pageProps }) {
 	return (
-		<ThemeProvider theme={customTheme}>
-			<ColorModeProvider>
-				<CSSReset />
-
-				<Head>
-					<title>Rota.chat UI</title>
-					<link rel="icon" href="/favicon.ico" />
-				</Head>
-
-				<Flex flexDirection="column" height="100vh">
-					<Header />
-					<Flex flex="1" overflow="auto">
-						<Menu />
-						<Box flex="1" height="100%" overflow="auto">
-							<Flex justify="center" height="100%">
-								<Component {...pageProps} />
-							</Flex>
-						</Box>
-					</Flex>
+		<ChakraProvider theme={customTheme}>
+			<Head>
+				<title>Rota.chat UI</title>
+				<link rel="icon" href="/favicon.ico" />
+			</Head>
+			<ColorModeScript initialColorMode="light" />
+			<Flex flexDirection="column" height="100vh">
+				<Header />
+				<Flex flex="1" overflow="auto">
+					<Menu />
+					<Box flex="1" height="100%" overflow="auto">
+						<Flex justify="center" height="100%">
+							<Component {...pageProps} />
+						</Flex>
+					</Box>
 				</Flex>
-			</ColorModeProvider>
-		</ThemeProvider>
+			</Flex>
+		</ChakraProvider>
 	);
 }

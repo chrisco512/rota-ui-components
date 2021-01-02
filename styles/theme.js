@@ -1,13 +1,16 @@
-import { theme } from '@chakra-ui/core';
+import { extendTheme } from '@chakra-ui/react';
+import { createBreakpoints } from '@chakra-ui/theme-tools';
 
 export const breakpoints = [ '544px', '768px', '1012px', '1280px' ];
-breakpoints.sm = breakpoints[0];
-breakpoints.md = breakpoints[1];
-breakpoints.lg = breakpoints[2];
-breakpoints.xl = breakpoints[3];
 
-export const customTheme = {
-	...theme,
+const customBreakpoints = createBreakpoints({
+	sm: breakpoints[0],
+	md: breakpoints[1],
+	lg: breakpoints[2],
+	xl: breakpoints[3],
+});
+
+const overrides = {
 	breakpoints,
 	fonts: {
 		heading: '"Avenir Next", sans-serif',
@@ -32,18 +35,33 @@ export const customTheme = {
 		'4rem',
 	],
 	colors: {
-		...theme.colors,
 		white: '#FCFCFC',
 		black: '#333333',
 		dark: '#444140',
 		dark2: '#052f5f',
 		primary: {
-			'300': '#FC9F5B',
+			'50': '#FCDBC5',
+			'100': '#FAC39E',
+			'200': '#F9AB77',
+			'300': '#F79250',
+			'400': '#F57A29',
 			'500': '#ED640B',
+			'600': '#C35309',
+			'700': '#9C4307',
+			'800': '#753206',
+			'900': '#4E2104',
 		},
 		secondary: {
-			'300': '#FBD1A2',
+			'50': '#FFF7EB',
+			'100': '#FFE8C2',
+			'200': '#FFE0AD',
+			'300': '#FFD899',
+			'400': '#FFD085',
 			'500': '#FFC15E',
+			'600': '#FFA91F',
+			'700': '#CC7E00',
+			'800': '#784B00',
+			'900': '#3D2600',
 		},
 		neutral: {
 			'1': '#ECE4B7',
@@ -51,9 +69,16 @@ export const customTheme = {
 			'3': '#FFEAD0',
 		},
 		outline: {
+			'50': '#EDC7AB',
+			'100': '#DE9968',
+			'200': '#D78347',
 			'300': '#B86428',
+			'400': '#975221',
 			'500': '#5B3214',
+			'600': '#542E12',
 			'700': '#43240F',
+			'800': '#211207',
+			'900': '#110904',
 		},
 		green: {
 			'500': '#D8F793',
@@ -66,7 +91,6 @@ export const customTheme = {
 		},
 	},
 	sizes: {
-		...theme.sizes,
 		containers: {
 			sm: '544px',
 			md: '768px',
@@ -75,6 +99,8 @@ export const customTheme = {
 		},
 	},
 };
+
+export const customTheme = extendTheme(overrides);
 
 export const bgColor = { light: 'white', dark: 'dark' };
 export const textColor = { light: 'outline.500', dark: 'white' };
