@@ -86,7 +86,7 @@ export default function CurrentClipBar({ authorName = 'Christopher Johnson', men
 						value={player ? player.currentTime() / player.duration() * 100 : 0}
 						onChange={(val) => {
 							if (!player) return;
-							player.currentTime(val / 100 * playerw.duration());
+							player.currentTime(val / 100 * player.duration());
 						}}
 						minW={64}
 					>
