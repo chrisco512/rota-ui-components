@@ -1,8 +1,9 @@
-import { Text, Breadcrumb, BreadcrumbLink, BreadcrumbItem, Icon } from '@chakra-ui/core';
+import { Text, Breadcrumb, BreadcrumbLink, BreadcrumbItem, Box } from '@chakra-ui/react';
+import { FaChevronRight } from 'react-icons/fa';
 
 function Breadcrumbs() {
 	return (
-		<Breadcrumb spacing="8px" separator={<Icon color="gray.300" name="chevron-right" />}>
+		<Breadcrumb spacing="8px" separator={<Box color="gray.300" as={FaChevronRight} />}>
 			<BreadcrumbItem>
 				<BreadcrumbLink href="/">
 					<Text fontFamily="book" color="outline.500">

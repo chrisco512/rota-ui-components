@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { useState } from 'react';
-import { Box, Heading, Stack, Text, Flex } from '@chakra-ui/core';
+import { Box, Heading, Stack, Text, Flex } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 
 const MotionBox = motion.custom(Box);

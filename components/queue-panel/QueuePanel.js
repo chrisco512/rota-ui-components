@@ -5,14 +5,14 @@ import {
 	Text,
 	Accordion,
 	AccordionItem,
-	AccordionHeader,
+	AccordionButton,
 	AccordionIcon,
 	IconButton,
 	AccordionPanel,
 	useColorMode,
 	Icon,
-} from '@chakra-ui/core';
-import { FaStream } from 'react-icons/fa';
+} from '@chakra-ui/react';
+import { FaStream, FaSort } from 'react-icons/fa';
 import { useState, useCallback, Fragment } from 'react';
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
 
@@ -69,9 +69,9 @@ function DraggableQueueThreadItem({ threadTitle, tableTitle = 'Crypto Chat II', 
 	return (
 		<Fragment>
 			<Flex align="center">
-				<Icon color="primary.500" name="up-down" size="1.25em" />
-				<Stack overflow="hidden" spacing={0} w="100%">
-					<Flex textAlign="left" ml={3} color="outline.500">
+				<Box color="primary.500" as={FaSort} h="1.25em" w="1.25em" />
+				<Stack overflow="hidden" spacing={0} ml={3} w="100%">
+					<Flex textAlign="left" color="outline.500">
 						<Text flexGrow={1} fontSize={0} fontFamily="bold" textTransform="uppercase" lineHeight={2}>
 							{tableTitle}
 						</Text>
@@ -80,7 +80,7 @@ function DraggableQueueThreadItem({ threadTitle, tableTitle = 'Crypto Chat II', 
 							{convertLengthInSecondsToText({ lengthInSeconds: lengthInSeconds })}
 						</Text>
 					</Flex>
-					<Flex textAlign="left" ml={3} overflow="hidden">
+					<Flex textAlign="left" overflow="hidden">
 						<Text flexGrow={1} isTruncated fontFamily="book" fontSize={1} lineHeight={2}>
 							{threadTitle}
 						</Text>
@@ -94,14 +94,14 @@ function DraggableQueueThreadItem({ threadTitle, tableTitle = 'Crypto Chat II', 
 function QueueThreadItem({ threadTitle, threadClips, tableTitle = 'Crypto Chat II', lengthInSeconds = 155 }) {
 	return (
 		<Fragment>
-			<AccordionHeader
+			<AccordionButton
 				_expanded={{
 					backgroundColor: customTheme.colors.neutral['3'],
 				}}
 			>
 				<AccordionIcon />
-				<Stack overflow="hidden" spacing={0} w="100%">
-					<Flex textAlign="left" ml={3} color="outline.500">
+				<Stack overflow="hidden" spacing={0} w="100%" ml={3}>
+					<Flex textAlign="left" color="outline.500">
 						<Text flexGrow={1} fontSize={0} fontFamily="bold" textTransform="uppercase" lineHeight={2}>
 							{tableTitle}
 						</Text>
@@ -110,13 +110,13 @@ function QueueThreadItem({ threadTitle, threadClips, tableTitle = 'Crypto Chat I
 							{convertLengthInSecondsToText({ lengthInSeconds: lengthInSeconds })}
 						</Text>
 					</Flex>
-					<Flex textAlign="left" ml={3} overflow="hidden">
+					<Flex textAlign="left" overflow="hidden">
 						<Text flexGrow={1} isTruncated fontFamily="book" fontSize={1} lineHeight={2}>
 							{threadTitle}
 						</Text>
 					</Flex>
 				</Stack>
-			</AccordionHeader>
+			</AccordionButton>
 			<AccordionPanel
 				padding={0}
 				borderTopWidth={1}
@@ -172,7 +172,7 @@ function QueuePanel() {
 			>
 				<IconButton
 					aria-label="Reorder Thread Queue"
-					icon={FaStream}
+					icon={<FaStream />}
 					color="outline.500"
 					size="lg"
 					variant="ghost"
@@ -194,7 +194,7 @@ function QueuePanel() {
 				</Text>
 				<IconButton
 					aria-label="Reorder Thread Queue"
-					icon={FaStream}
+					icon={<FaStream />}
 					color="outline.500"
 					size="lg"
 					variant="ghost"

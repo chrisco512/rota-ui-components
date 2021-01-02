@@ -1,4 +1,4 @@
-import { Flex, Stack, useColorMode, Box } from '@chakra-ui/core';
+import { Flex, Stack, useColorMode, Box } from '@chakra-ui/react';
 
 import { MediaProvider } from '../../lib';
 import { CurrentClipBar } from '../current-clip-bar';

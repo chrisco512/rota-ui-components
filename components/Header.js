@@ -13,7 +13,7 @@ import {
 	DrawerBody,
 	DrawerFooter,
 	useDisclosure,
-} from '@chakra-ui/core';
+} from '@chakra-ui/react';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaMoon, FaSun, FaRegListAlt } from 'react-icons/fa';
@@ -45,7 +45,7 @@ export default function Header({}) {
 	const { isOpen, onOpen, onClose } = useDisclosure();
 	const btnRef = React.useRef();
 
-	const colorModeIcon = { light: FaMoon, dark: FaSun };
+	const colorModeIcon = { light: <FaMoon />, dark: <FaSun /> };
 
 	return (
 		<Flex
@@ -53,7 +53,7 @@ export default function Header({}) {
 			align="center"
 			justify="space-between"
 			wrap="wrap"
-			padding={{ _: 4, md: 5 }}
+			padding={{ base: 4, md: 5 }}
 			bg="outline.500"
 			color="white"
 		>
@@ -67,13 +67,13 @@ export default function Header({}) {
 							loop: Infinity,
 						}}
 					>
-						<Logo h={{ _: 12, md: 16 }} w={{ _: 12, md: 16 }} />
+						<Logo h={{ base: 12, md: 16 }} w={{ base: 12, md: 16 }} />
 					</MotionBox>
-					<Heading as="h1" fontSize={{ _: 6, md: 7 }} fontFamily="rust" ml={4}>
-						R<Text as="span" fontSize={{ _: 5, md: 6 }} fontFamily="rust">
+					<Heading as="h1" fontSize={{ base: 6, md: 7 }} fontFamily="rust" ml={4}>
+						R<Text as="span" fontSize={{ base: 5, md: 6 }} fontFamily="rust">
 							ota
 						</Text>
-						<Text as="span" fontSize={{ _: 5, md: 6 }} fontFamily="rust">
+						<Text as="span" fontSize={{ base: 5, md: 6 }} fontFamily="rust">
 							cast
 						</Text>
 					</Heading>
@@ -91,11 +91,11 @@ export default function Header({}) {
 				<IconButton
 					ref={btnRef}
 					aria-label="Open navigation menu"
-					icon={FaRegListAlt}
+					icon={<FaRegListAlt />}
 					size="lg"
 					variant="ghost"
 					onClick={onOpen}
-					display={{ _: 'block', lg: 'none' }}
+					display={{ base: 'block', lg: 'none' }}
 				/>
 			</Stack>
 		</Flex>

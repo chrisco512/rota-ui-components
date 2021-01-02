@@ -1,4 +1,4 @@
-import { useColorMode, Flex, LightMode, Progress, Text } from '@chakra-ui/core';
+import { useColorMode, Flex, LightMode, Progress, Text } from '@chakra-ui/react';
 
 import { textColor } from '../../styles/theme';
 import { convertLengthInSecondsToText } from '../../lib';
@@ -17,7 +17,7 @@ export default function CurrentThreadClipItemProgress({
 			<LightMode>
 				<Progress
 					w={w}
-					color="primary"
+					colorScheme="primary"
 					hasStripe
 					rounded="lg"
 					borderWidth="2px"

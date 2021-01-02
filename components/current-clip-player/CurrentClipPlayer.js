@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Box, Stack, Text } from '@chakra-ui/core';
+import { Box, Stack, Text } from '@chakra-ui/react';
 import videojs from 'video.js';
 import 'wavesurfer.js';
 import 'videojs-wavesurfer/dist/videojs.wavesurfer.js';
@@ -103,17 +103,15 @@ export default function CurrentClipPlayer({
 	}, []);
 
 	return (
-		<Box>
-			<Box className={styles.audioContainer} bg="green.500" w="100%">
-				<Stack className={styles.avatarContainer} h="100%" w="100%" alignItems="center" justifyContent="center">
-					<Box h={20} w={20} bg="blue.500" borderRadius={5}>
-						<Avatar {...avatar} />
-					</Box>
-					<Text fontFamily="slab" color="outline.500">
-						{authorName}
-					</Text>
-				</Stack>
-			</Box>
+		<Box className={styles.audioContainer} bg="green.500" w="100%">
+			<Stack className={styles.avatarContainer} h="100%" w="100%" alignItems="center" justifyContent="center">
+				<Box h={20} w={20} bg="blue.500" borderRadius={5}>
+					<Avatar {...avatar} />
+				</Box>
+				<Text fontFamily="slab" color="outline.500">
+					{authorName}
+				</Text>
+			</Stack>
 		</Box>
 	);
 }

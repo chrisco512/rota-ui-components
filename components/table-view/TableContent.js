@@ -1,4 +1,4 @@
-import { Box, Flex, Text, Accordion, AccordionItem } from '@chakra-ui/core';
+import { Box, Flex, Text, Accordion, AccordionItem } from '@chakra-ui/react';
 import { threads } from '../../lib/dummydata';
 import { TableThreadItem, TableInfo } from '.';
 

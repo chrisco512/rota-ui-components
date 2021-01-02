@@ -1,13 +1,16 @@
-import { theme } from '@chakra-ui/core';
+import { extendTheme } from '@chakra-ui/react';
+import { createBreakpoints } from '@chakra-ui/theme-tools';
 
 export const breakpoints = [ '544px', '768px', '1012px', '1280px' ];
-breakpoints.sm = breakpoints[0];
-breakpoints.md = breakpoints[1];
-breakpoints.lg = breakpoints[2];
-breakpoints.xl = breakpoints[3];
 
-export const customTheme = {
-	...theme,
+const customBreakpoints = createBreakpoints({
+	sm: breakpoints[0],
+	md: breakpoints[1],
+	lg: breakpoints[2],
+	xl: breakpoints[3],
+});
+
+const overrides = {
 	breakpoints,
 	fonts: {
 		heading: '"Avenir Next", sans-serif',
@@ -32,7 +35,7 @@ export const customTheme = {
 		'4rem',
 	],
 	colors: {
-		...theme.colors,
+		//...theme.colors,
 		white: '#FCFCFC',
 		black: '#333333',
 		dark: '#444140',
@@ -66,7 +69,7 @@ export const customTheme = {
 		},
 	},
 	sizes: {
-		...theme.sizes,
+		//...theme.sizes,
 		containers: {
 			sm: '544px',
 			md: '768px',
@@ -75,6 +78,8 @@ export const customTheme = {
 		},
 	},
 };
+
+export const customTheme = extendTheme(overrides);
 
 export const bgColor = { light: 'white', dark: 'dark' };
 export const textColor = { light: 'outline.500', dark: 'white' };

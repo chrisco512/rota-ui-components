@@ -1,4 +1,4 @@
-import { Box, Flex, useColorMode, Text } from '@chakra-ui/core';
+import { Box, Flex, useColorMode, Text } from '@chakra-ui/react';
 import { textColor } from '../../styles/theme';
 
 function TableThreadClipListHeader() {

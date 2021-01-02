@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { useState } from 'react';
-import { Box, Heading, Stack } from '@chakra-ui/core';
+import { Box, Heading, Stack } from '@chakra-ui/react';
 
 import { SiteContentLayout } from '../../components/site-content-layout';
 import { TableView } from '../../components/table-view';

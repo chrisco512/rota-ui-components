@@ -1,4 +1,4 @@
-import { Box, Grid, Text } from '@chakra-ui/core';
+import { Box, Grid, Text } from '@chakra-ui/react';
 
 import Avatar from '../avatar';
 

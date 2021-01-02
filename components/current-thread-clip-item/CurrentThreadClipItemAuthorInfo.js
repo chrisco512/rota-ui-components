@@ -1,4 +1,4 @@
-import { useColorMode, Flex, Text } from '@chakra-ui/core';
+import { useColorMode, Flex, Text } from '@chakra-ui/react';
 import { textColor } from '../../styles/theme';
 
 export default function CurrentThreadClipItemAuthorInfo({
