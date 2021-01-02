@@ -21,7 +21,7 @@ function RoomTableItemActionButtons() {
 				w={6}
 				minW={0}
 				variant="outline"
-				colorScheme="primary.300"
+				colorScheme="primary"
 				borderRadius={3}
 				aria-label="Quick Play"
 				icon={<FaPlay />}
@@ -32,7 +32,7 @@ function RoomTableItemActionButtons() {
 				w={6}
 				minW={0}
 				variant="outline"
-				colorScheme="primary.300"
+				colorScheme="primary"
 				borderRadius={3}
 				aria-label="Quick Add"
 				icon={<FaPlus />}
