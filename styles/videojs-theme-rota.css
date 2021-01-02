@@ -27,6 +27,14 @@
 	width: 3.5em;
 }
 
+.vjs-theme-rota .vjs-current-time-display {
+	white-space: nowrap;
+}
+
+.vjs-theme-rota .vjs-duration-display {
+	white-space: nowrap;
+}
+
 .vjs-theme-rota .vjs-control-bar {
 	height: 42px;
 	background-color: #5b3214;

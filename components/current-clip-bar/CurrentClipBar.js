@@ -38,7 +38,7 @@ export default function CurrentClipBar({ authorName = 'Christopher Johnson', men
 				</Text>
 			</Stack>
 			<Flex flexGrow="1" justify="center" align="center" h="100%">
-				<Flex mr={5} ml={5}>
+				<Flex mr={5} ml={5} align="center">
 					<IconButton
 						icon={<FaUndo />}
 						onClick={() => {
@@ -51,7 +51,8 @@ export default function CurrentClipBar({ authorName = 'Christopher Johnson', men
 						variant="ghost"
 						colorScheme="outline"
 						fontSize="32px"
-						mr={4}
+						h={12}
+						w={12}
 					/>
 					<IconButton
 						icon={
@@ -61,7 +62,8 @@ export default function CurrentClipBar({ authorName = 'Christopher Johnson', men
 						variant="ghost"
 						colorScheme="outline"
 						fontSize="48px"
-						mr={4}
+						h={16}
+						w={16}
 					/>
 					<IconButton
 						icon={<FaRedo />}
@@ -69,11 +71,13 @@ export default function CurrentClipBar({ authorName = 'Christopher Johnson', men
 						variant="ghost"
 						colorScheme="outline"
 						fontSize="32px"
+						h={12}
+						w={12}
 					/>
 				</Flex>
 				<Flex flexGrow="1" maxW={512}>
-					<Text color="outline.500" mr={2}>
-						{`${player ? Math.floor(timer) : 0}s`}
+					<Text color="outline.500" mr={4} w={16} textAlign="right">
+						{`${player && timer ? Math.floor(timer) : 0}s`}
 					</Text>
 					<Slider
 						colorScheme="primary"
@@ -82,23 +86,23 @@ export default function CurrentClipBar({ authorName = 'Christopher Johnson', men
 						value={player ? player.currentTime() / player.duration() * 100 : 0}
 						onChange={(val) => {
 							if (!player) return;
-							player.currentTime(val / 100 * player.duration());
+							player.currentTime(val / 100 * playerw.duration());
 						}}
 						minW={64}
 					>
 						<SliderTrack h={3} borderRadius={5} bg="outline.500" borderColor="outline.500" borderWidth={2}>
-							<SliderFilledTrack h={3} borderRadius={5} borderColor="outline.500" borderWidth={2} />
+							<SliderFilledTrack />
 						</SliderTrack>
 						<SliderThumb boxSize={6} bg="white" borderColor="outline.500" borderWidth={2} />
 					</Slider>
-					<Text color="outline.500">{`${player ? Math.floor(player.duration()) : 0}s`}</Text>
+					<Text color="outline.500" w={16} ml={4}>{`${player ? Math.floor(player.duration()) : 0}s`}</Text>
 				</Flex>
 			</Flex>
 			<Stack align="center" justify="center" spacing={1} mr={2} ml={2} h="100%">
 				<IconButton
 					icon={<FaMicrophoneAlt />}
 					variant="ghost"
-					colorScheme="green"
+					colorScheme="outline"
 					w={16}
 					h={16}
 					fontSize="48px"

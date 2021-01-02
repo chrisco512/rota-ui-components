@@ -75,7 +75,6 @@ function DraggableQueueThreadItem({ threadTitle, tableTitle = 'Crypto Chat II', 
 						<Text flexGrow={1} fontSize={0} fontFamily="bold" textTransform="uppercase" lineHeight={2}>
 							{tableTitle}
 						</Text>
-
 						<Text fontSize={0} fontFamily="bold" lineHeight={2}>
 							{convertLengthInSecondsToText({ lengthInSeconds: lengthInSeconds })}
 						</Text>
