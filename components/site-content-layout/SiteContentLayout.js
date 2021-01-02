@@ -4,7 +4,6 @@ import { MediaProvider } from '../../lib';
 import { CurrentClipBar } from '../current-clip-bar';
 import { QueuePanel } from '../queue-panel';
 import { CurrentPanel } from '../current-panel';
-import { TableView } from '../table-view';
 import { Breadcrumbs } from '.';
 
 function MainPanel({ children }) {
@@ -33,9 +32,8 @@ function MainPanel({ children }) {
 	);
 }
 
-export default function SiteContentLayout(props) {
+export default function SiteContentLayout({ children }) {
 	const { colorMode } = useColorMode();
-	const { text } = props;
 
 	return (
 		<MediaProvider>
@@ -54,7 +52,7 @@ export default function SiteContentLayout(props) {
 					<CurrentPanel />
 					<MainPanel>
 						<Breadcrumbs />
-						<TableView />
+						{children}
 					</MainPanel>
 					<QueuePanel />
 				</Flex>
