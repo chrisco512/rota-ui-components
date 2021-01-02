@@ -46,6 +46,7 @@ export function MenuList() {
 			<MenuComponentItem href="/current-thread-clip-item" text="CurrentThreadClipItem" />
 			<MenuComponentItem href="/avatar" text="Avatar" />
 			<MenuComponentItem href="/site-content-layout" text="SiteContentLayout" />
+			<MenuComponentItem href="/room-view" text="RoomView" />
 			<MenuComponentItem href="/current-clip-player" text="CurrentClipPlayer" />
 			<MenuComponentItem href="/current-clip-bar" text="CurrentClipBar" />
 			<MenuComponentItem href="/motion" text="Motion" />
