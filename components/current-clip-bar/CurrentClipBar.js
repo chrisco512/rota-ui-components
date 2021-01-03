@@ -95,7 +95,9 @@ export default function CurrentClipBar({ authorName = 'Christopher Johnson', men
 						</SliderTrack>
 						<SliderThumb boxSize={6} bg="white" borderColor="outline.500" borderWidth={2} />
 					</Slider>
-					<Text color="outline.500" w={16} ml={4}>{`${player ? Math.floor(player.duration()) : 0}s`}</Text>
+					<Text color="outline.500" w={16} ml={4}>{`${player
+						? player.duration() ? Math.floor(player.duration()) : '??'
+						: 0}s`}</Text>
 				</Flex>
 			</Flex>
 			<Stack align="center" justify="center" spacing={1} mr={2} ml={2} h="100%">
