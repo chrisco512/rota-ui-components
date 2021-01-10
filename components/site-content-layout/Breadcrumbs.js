@@ -3,7 +3,7 @@ import { FaChevronRight } from 'react-icons/fa';
 
 function Breadcrumbs() {
 	return (
-		<Breadcrumb spacing="8px" separator={<Box color="gray.300" as={FaChevronRight} />}>
+		<Breadcrumb spacing="0.5rem" separator={<Box color="gray.300" as={FaChevronRight} />}>
 			<BreadcrumbItem>
 				<BreadcrumbLink href="/">
 					<Text fontFamily="book" color="outline.500">

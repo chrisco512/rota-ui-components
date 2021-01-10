@@ -6,8 +6,8 @@ export default function Logo({
 	fill = theme.colors.primary['500'],
 	stroke = theme.colors.secondary['500'],
 	fontColor = theme.colors.white,
-	h = '64px',
-	w = '64px',
+	h = '4rem',
+	w = '4rem',
 }) {
 	const cls1Styles = {
 		fill,

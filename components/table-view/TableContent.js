@@ -4,7 +4,7 @@ import { TableThreadItem, TableInfo } from '.';
 
 function TableThreads() {
 	return (
-		<Box flex={2}>
+		<Box flex={1} overflow="hidden">
 			<Text as="h4" fontFamily="slab" fontSize={4} color="outline.500">
 				Threads
 			</Text>

@@ -38,7 +38,7 @@ export default function CurrentClipBar({ authorName = 'Christopher Johnson', men
 				</Text>
 			</Stack>
 			<Flex flexGrow="1" justify="center" align="center" h="100%">
-				<Flex mr={5} ml={5} align="center">
+				<Flex mr={5} ml={5} align="center" justify="center">
 					<IconButton
 						icon={<FaUndo />}
 						onClick={() => {
@@ -50,9 +50,9 @@ export default function CurrentClipBar({ authorName = 'Christopher Johnson', men
 						}}
 						variant="ghost"
 						colorScheme="outline"
-						fontSize="32px"
-						h={12}
-						w={12}
+						fontSize={7}
+						h={14}
+						w={14}
 					/>
 					<IconButton
 						icon={
@@ -61,7 +61,7 @@ export default function CurrentClipBar({ authorName = 'Christopher Johnson', men
 						onClick={() => (player.paused() ? player.play() : player.pause())}
 						variant="ghost"
 						colorScheme="outline"
-						fontSize="48px"
+						fontSize={8}
 						h={16}
 						w={16}
 					/>
@@ -70,9 +70,9 @@ export default function CurrentClipBar({ authorName = 'Christopher Johnson', men
 						onClick={() => player.currentTime(player.currentTime() + 7)}
 						variant="ghost"
 						colorScheme="outline"
-						fontSize="32px"
-						h={12}
-						w={12}
+						fontSize={7}
+						h={14}
+						w={14}
 					/>
 				</Flex>
 				<Flex flexGrow="1" maxW={512}>
@@ -105,9 +105,9 @@ export default function CurrentClipBar({ authorName = 'Christopher Johnson', men
 					icon={<FaMicrophoneAlt />}
 					variant="ghost"
 					colorScheme="outline"
-					w={16}
+					fontSize={8}
 					h={16}
-					fontSize="48px"
+					w={16}
 				/>
 			</Stack>
 		</Flex>
