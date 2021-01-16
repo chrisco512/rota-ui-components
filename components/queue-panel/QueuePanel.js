@@ -160,7 +160,7 @@ function QueuePanel() {
 	});
 
 	return (
-		<Stack w="360px" overflow="hidden" spacing={0} borderLeftWidth={3} borderColor="outline.500" flexShrink={0}>
+		<Stack w={96} overflow="hidden" spacing={0} borderLeftWidth={3} borderColor="outline.500" flexShrink={0}>
 			<Flex
 				bg="secondary.500"
 				align="center"

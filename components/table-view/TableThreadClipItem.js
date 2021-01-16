@@ -30,7 +30,7 @@ function TableThreadClipItem({
 
 	return (
 		<Flex overflow="hidden" h={12} align="center">
-			<Box w={10} h={10} bg="blue.500" rounded="lg" ml="2" mr="2" flexShrink={0}>
+			<Box w={10} h={10} bg="blue.500" rounded="lg" ml={2} mr={2} flexShrink={0}>
 				<Avatar avatarStyle="Transparent" {...avatar} />
 			</Box>
 			<Flex align="baseline" flexGrow={1} overflow="hidden">

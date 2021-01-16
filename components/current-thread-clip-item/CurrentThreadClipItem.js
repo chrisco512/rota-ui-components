@@ -15,7 +15,7 @@ export default function CurrentThreadClipItem(props) {
 	const { text } = props;
 
 	return (
-		<Stack maxW="512px" minW="300px" width="100%" {...props}>
+		<Stack minW={72} width="100%" {...props}>
 			<Flex
 				flexDirection="column"
 				overflow="hidden"
@@ -27,7 +27,7 @@ export default function CurrentThreadClipItem(props) {
 			>
 				{text ? <CurrentThreadClipItemText text={text} /> : null}
 				<Flex w="100%">
-					<Box w="64px" h="64px" bg="blue.500" rounded="lg" mr="2" flexShrink={0}>
+					<Box w={16} h={16} bg="blue.500" rounded="lg" mr="2" flexShrink={0}>
 						<Avatar
 							avatarStyle="Transparent"
 							topType="LongHairDreads"
@@ -47,7 +47,7 @@ export default function CurrentThreadClipItem(props) {
 						<CurrentThreadClipItemProgress percentPlayed={75} lengthInSeconds={45} />
 						<CurrentThreadClipItemMeta />
 					</Flex>
-					<Flex alignItems="center" justifyContent="center" flexShrink={0} width="40px">
+					<Flex alignItems="center" justifyContent="center" flexShrink={0} width={10}>
 						<CurrentThreadClipItemMenu />
 					</Flex>
 				</Flex>

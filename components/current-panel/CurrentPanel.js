@@ -12,7 +12,15 @@ const CurrentClipPlayer = dynamic(
 
 function CurrentPanel() {
 	return (
-		<Stack bg="red.200" w="360px" spacing={0} borderRightWidth={3} borderColor="outline.500" overflow="hidden">
+		<Stack
+			bg="red.200"
+			w={96}
+			spacing={0}
+			borderRightWidth={3}
+			borderColor="outline.500"
+			overflow="hidden"
+			flexShrink={0}
+		>
 			<Flex
 				bg="secondary.500"
 				align="center"

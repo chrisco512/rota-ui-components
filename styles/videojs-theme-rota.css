@@ -36,23 +36,23 @@
 }
 
 .vjs-theme-rota .vjs-control-bar {
-	height: 42px;
+	height: 3rem;
 	background-color: #5b3214;
 	border-top: 1px solid #5b3214;
 	box-sizing: border-box;
 }
 
 .vjs-theme-rota .vjs-button > .vjs-icon-placeholder::before {
-	line-height: 42px;
+	line-height: 3rem;
 }
 
 .vjs-theme-rota .vjs-time-control {
-	line-height: 42px;
+	line-height: 3rem;
 }
 
 /* Play Button */
 .vjs-theme-rota .vjs-play-control {
-	font-size: 1.5em;
+	font-size: 1.75em;
 	position: relative;
 }
 

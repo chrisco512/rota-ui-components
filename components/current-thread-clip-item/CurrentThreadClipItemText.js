@@ -13,11 +13,11 @@ export default function CurrentThreadClipItemText({ text }) {
 				</Text>
 			</Flex>
 
-			<Box h={4} w={4} ml="32px">
+			<Box h={4} w={4} ml="2rem">
 				<Box
 					h="0px"
 					w="0px"
-					borderWidth={8}
+					borderWidth="0.5rem"
 					borderTopColor={bubbleBgColor[colorMode]}
 					borderLeftColor={bubbleBgColor[colorMode]}
 					borderBottomColor="transparent"
