@@ -42,6 +42,7 @@ export function MenuList() {
 			<MenuComponentItem href="/room-view" text="RoomView" />
 			<MenuComponentItem href="/current-clip-player" text="CurrentClipPlayer" />
 			<MenuComponentItem href="/current-clip-bar" text="CurrentClipBar" />
+			<MenuComponentItem href="/mobile" text="Mobile" />
 			<MenuComponentItem href="/motion" text="Motion" />
 		</Stack>
 	);

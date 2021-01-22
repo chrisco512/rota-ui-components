@@ -37,17 +37,7 @@ export default function SiteContentLayout({ children }) {
 
 	return (
 		<MediaProvider>
-			<Stack
-				mr={8}
-				ml={8}
-				mb={8}
-				w="100%"
-				h="100%"
-				borderColor="outline.500"
-				borderWidth={1}
-				overflow="hidden"
-				spacing={0}
-			>
+			<Stack w="100%" h="100%" borderColor="outline.500" borderWidth={1} overflow="hidden" spacing={0}>
 				<Flex w="100%" flexGrow={1} overflow="hidden">
 					<CurrentPanel />
 					<MainPanel>

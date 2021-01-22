@@ -48,7 +48,7 @@ export default function CurrentThreadClipItem(props) {
 						<CurrentThreadClipItemMeta />
 					</Flex>
 					<Flex alignItems="center" justifyContent="center" flexShrink={0} width={10}>
-						<CurrentThreadClipItemMenu />
+						{/* <CurrentThreadClipItemMenu /> */}
 					</Flex>
 				</Flex>
 			</Flex>
