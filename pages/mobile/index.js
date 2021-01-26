@@ -5,12 +5,11 @@ import dynamic from 'next/dynamic';
 import { FaRegEye, FaRegClock, FaTable, FaThList, FaListOl, FaStream } from 'react-icons/fa';
 
 import { MediaProvider } from '../../lib';
-import { SiteContentLayout } from '../../components/site-content-layout';
-import { RoomView } from '../../components/room-view';
 import { QueuePanel } from '../../components/queue-panel';
 import { CurrentClipBar } from '../../components/current-clip-bar';
 import { Breadcrumbs } from '../../components/site-content-layout';
 import { CurrentThreadPanel } from '../../components/current-panel';
+import { TableView } from '../../components/table-view';
 
 const CurrentClipPlayer = dynamic(
 	() => {
@@ -19,11 +18,66 @@ const CurrentClipPlayer = dynamic(
 	{ ssr: false }
 );
 
-function MobileQueue() {}
+function MobileNavButton({ text, icon, onClick, isOpen }) {
+	return (
+		<Flex flex={1} align="center" justify="center" borderColor="outline.900" borderTopWidth={1}>
+			<Box
+				as="button"
+				pt={1}
+				pb={1}
+				pl={2}
+				pr={2}
+				mr={2}
+				borderRadius={3}
+				color={isOpen ? 'primary.300' : 'white'}
+				_hover={{
+					textDecoration: 'underline',
+				}}
+				onClick={onClick}
+			>
+				<Flex justify="center" align="center">
+					<Box w={4} h={4} mr={2} as={icon} />
+					<Text fontFamily="slab" fontSize={1} mt={1}>
+						{text}
+					</Text>
+				</Flex>
+			</Box>
+		</Flex>
+	);
+}
 
 export default function Mobile() {
-	const { isOpen: isOpenQueuePanel, onClose: onCloseQueuePanel, onToggle: onToggleQueuePanel } = useDisclosure();
-	const { isOpen: isOpenThreadPanel, onClose: onCloseThreadPanel, onToggle: onToggleThreadPanel } = useDisclosure();
+	const { isOpen: isOpenQueuePanel, onClose: onCloseQueuePanel, onOpen: onOpenQueuePanel } = useDisclosure();
+	const { isOpen: isOpenThreadPanel, onClose: onCloseThreadPanel, onOpen: onOpenThreadPanel } = useDisclosure();
+	const { isOpen: isOpenMainPanel, onOpen: onOpenMainPanel, onClose: onCloseMainPanel } = useDisclosure({
+		defaultIsOpen: true,
+	});
+
+	function openMainPanel() {
+		onOpenMainPanel();
+		onCloseThreadPanel();
+		onCloseQueuePanel();
+	}
+
+	function toggleThreadPanel() {
+		if (isOpenThreadPanel) {
+			openMainPanel();
+		} else {
+			onCloseMainPanel();
+			onCloseQueuePanel();
+			onOpenThreadPanel();
+		}
+	}
+
+	function toggleQueuePanel() {
+		if (isOpenQueuePanel) {
+			openMainPanel();
+		} else {
+			onCloseMainPanel();
+			onCloseThreadPanel();
+			onOpenQueuePanel();
+		}
+	}
 
 	return (
 		<MediaProvider>
@@ -38,11 +92,34 @@ export default function Mobile() {
 					pr={3}
 					overflow="hidden"
 					whiteSpace="nowrap"
+					borderBottomWidth="1px"
+					borderColor="outline.500"
 				>
 					<Breadcrumbs />
 				</Flex>
 				<Box w="100%" overflow="hidden" flex={1}>
 					<Box h="100%" w="100%" overflow="hidden">
+						<Box
+							as={SlideFade}
+							in={isOpenMainPanel}
+							direction="bottom"
+							overflowY="auto"
+							h="100%"
+							unmountOnExit={true}
+							className="main-scroll"
+						>
+							<Box
+								minH="100%"
+								borderRightWidth="1px"
+								borderColor="outline.500"
+								borderTopWidth="1px"
+								borderTopColor="transparent"
+								pr={2}
+								pl={2}
+							>
+								<TableView />
+							</Box>
+						</Box>
 						<Box
 							as={SlideFade}
 							in={isOpenQueuePanel}
@@ -51,9 +128,8 @@ export default function Mobile() {
 							h="100%"
 							unmountOnExit={true}
 						>
-							<QueuePanel closePanel={onCloseQueuePanel} />
+							<QueuePanel closePanel={toggleQueuePanel} />
 						</Box>
-
 						<Box
 							as={SlideFade}
 							in={isOpenThreadPanel}
@@ -70,95 +146,26 @@ export default function Mobile() {
 								h="100%"
 								display={{ base: 'flex', xl: 'flex' }}
 							>
-								<CurrentThreadPanel />
+								<CurrentThreadPanel closePanel={toggleThreadPanel} />
 							</Stack>
 						</Box>
 					</Box>
 				</Box>
 				<CurrentClipBar />
 				<Flex bg="outline.500" w="100%" h={12}>
-					<Flex
-						flex={1}
-						align="center"
-						justify="center"
-						borderColor="outline.900"
-						borderTopWidth={1}
-						spacing={1}
-					>
-						<Box
-							as="button"
-							pt={1}
-							pb={1}
-							pl={2}
-							pr={2}
-							mr={2}
-							borderRadius={3}
-							color="white"
-							_hover={{
-								textDecoration: 'underline',
-								color: 'primary.300',
-							}}
-						>
-							<Flex justify="center" align="center">
-								<Box w={4} h={4} mr={2} as={FaTable} />
-								<Text fontFamily="slab" fontSize={1} mt={1}>
-									Main
-								</Text>
-							</Flex>
-						</Box>
-					</Flex>
-					<Flex flex={1} align="center" justify="center" borderColor="outline.900" borderTopWidth={1}>
-						<Box
-							as="button"
-							pt={1}
-							pb={1}
-							pl={2}
-							pr={2}
-							mr={2}
-							borderRadius={3}
-							color="white"
-							_hover={{
-								textDecoration: 'underline',
-								color: 'primary.300',
-							}}
-							onClick={() => {
-								onCloseQueuePanel();
-								onToggleThreadPanel();
-							}}
-						>
-							<Flex justify="center" align="center">
-								<Box w={4} h={4} mr={2} as={FaThList} />
-								<Text fontFamily="slab" mt={1} fontSize={1}>
-									Thread
-								</Text>
-							</Flex>
-						</Box>
-					</Flex>
-					<Flex flex={1} align="center" justify="center" borderTopWidth={1} borderColor="outline.900">
-						<Box
-							pb={1}
-							pl={2}
-							pr={2}
-							mr={2}
-							borderRadius={3}
-							color={isOpenQueuePanel ? 'primary.300' : 'white'}
-							_hover={{
-								textDecoration: 'underline',
-								color: 'primary.300',
-							}}
-							onClick={() => {
-								onCloseThreadPanel();
-								onToggleQueuePanel();
-							}}
-						>
-							<Flex justify="center" align="center">
-								<Box w={4} h={4} mr={2} as={FaListOl} />
-								<Text fontFamily="slab" mt={1} fontSize={1}>
-									Queue
-								</Text>
-							</Flex>
-						</Box>
-					</Flex>
+					<MobileNavButton text="Main" icon={FaTable} isOpen={isOpenMainPanel} onClick={openMainPanel} />
+					<MobileNavButton
+						text="Thread"
+						icon={FaThList}
+						onClick={toggleThreadPanel}
+						isOpen={isOpenThreadPanel}
+					/>
+					<MobileNavButton
+						text="Queue"
+						icon={FaListOl}
+						onClick={toggleQueuePanel}
+						isOpen={isOpenQueuePanel}
+					/>
 				</Flex>
 			</Stack>
 		</MediaProvider>

@@ -8,12 +8,12 @@ export default function CurrentThreadClipItemText({ text }) {
 	return (
 		<Flex mb={1} flexDirection="column">
 			<Flex bg={bubbleBgColor[colorMode]} rounded="md" p={3} w="100%">
-				<Text color={bubbleTextColor[colorMode]} fontFamily="book" fontSize={2}>
+				<Text color={bubbleTextColor[colorMode]} fontFamily="book" fontSize={{ base: 1, md: 2 }}>
 					{text}
 				</Text>
 			</Flex>
 
-			<Box h={4} w={4} ml="2rem">
+			<Box h={{ base: 3, md: 4 }} w={{ base: 3, md: 4 }} ml={{ base: '1.5rem', md: '2rem' }}>
 				<Box
 					h="0px"
 					w="0px"

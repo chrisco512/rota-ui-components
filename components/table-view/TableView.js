@@ -5,7 +5,14 @@ import { TableContent } from '.';
 
 function TableTitle() {
 	return (
-		<Text as="h2" fontFamily="slab" fontSize={7} mb={3} mt={3} color="outline.500">
+		<Text
+			as="h2"
+			fontFamily="slab"
+			fontSize={{ base: 4, md: 7 }}
+			mb={{ base: 2, md: 3 }}
+			mt={{ base: 2, md: 3 }}
+			color="outline.500"
+		>
 			Crypto Chat II
 		</Text>
 	);

@@ -16,7 +16,6 @@ import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
 
 import { DraggableQueueThreadItem, QueueThreadItem } from './';
 import { queue as defaultQueue } from '../../lib/dummydata';
-import styles from './QueuePanel.module.css';
 
 function QueueContent({ editingMode, queue, setQueue }) {
 	const onDragEnd = useCallback((result, provided) => {
@@ -99,7 +98,7 @@ function QueuePanel({ closePanel }) {
 				justify="center"
 				borderColor="outline.500"
 				borderBottomWidth="1px"
-				borderTopWidth="2px"
+				borderTopWidth="1px"
 			>
 				<IconButton
 					aria-label="Reorder Thread Queue"

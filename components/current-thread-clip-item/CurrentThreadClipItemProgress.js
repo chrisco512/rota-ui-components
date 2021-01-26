@@ -28,7 +28,13 @@ export default function CurrentThreadClipItemProgress({
 				/>
 			</LightMode>
 			{showSeconds ? (
-				<Text fontSize={1} lineHeight={1} fontFamily="book" color={textColor[colorMode]} ml={1}>
+				<Text
+					fontSize={{ base: 0, md: 1 }}
+					lineHeight={1}
+					fontFamily="book"
+					color={textColor[colorMode]}
+					ml={1}
+				>
 					{convertLengthInSecondsToText({ lengthInSeconds })}
 				</Text>
 			) : null}

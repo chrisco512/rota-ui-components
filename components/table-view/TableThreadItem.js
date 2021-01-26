@@ -24,6 +24,8 @@ function TableThreadItem({ thread = { title: 'Generic Table Thread Item', dateCr
 						backgroundColor: customTheme.colors.neutral['3'],
 					}}
 					_focus={{ backgroundColor: customTheme.colors.neutral['3'] }}
+					pl={{ base: '0.5rem', md: '1rem' }}
+					pr={{ base: '0.5rem', md: '1rem' }}
 				>
 					<TableThreadItemHeader
 						title={title}
@@ -33,8 +35,7 @@ function TableThreadItem({ thread = { title: 'Generic Table Thread Item', dateCr
 				</AccordionButton>
 			</h3>
 			<AccordionPanel
-				pb={0}
-				pt={0}
+				p={0}
 				overflowY="auto"
 				h={300}
 				borderTopWidth={1}

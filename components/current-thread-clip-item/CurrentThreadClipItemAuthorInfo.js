@@ -9,7 +9,14 @@ export default function CurrentThreadClipItemAuthorInfo({
 
 	return (
 		<Flex alignItems="baseline">
-			<Text as="b" fontSize={2} mr="1" color={textColor[colorMode]} fontFamily="slab" isTruncated>
+			<Text
+				as="b"
+				fontSize={{ base: 1, md: 2 }}
+				mr="1"
+				color={textColor[colorMode]}
+				fontFamily="slab"
+				isTruncated
+			>
 				{authorName}
 			</Text>
 			<Text fontSize={0} color={textColor[colorMode]} fontFamily="book">

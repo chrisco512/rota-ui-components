@@ -21,13 +21,23 @@ export default function CurrentThreadClipItem(props) {
 				overflow="hidden"
 				borderWidth="1px"
 				w="100%"
-				p="2"
+				pl="2"
+				pr="2"
+				pb="1"
+				pt="1"
 				bg={bgColor[colorMode]}
 				overflow="hidden"
 			>
 				{text ? <CurrentThreadClipItemText text={text} /> : null}
-				<Flex w="100%">
-					<Box w={16} h={16} bg="blue.500" rounded="lg" mr="2" flexShrink={0}>
+				<Flex w="100%" align="center" justify="center">
+					<Box
+						w={{ base: 12, md: 16 }}
+						h={{ base: 12, md: 16 }}
+						bg="blue.500"
+						rounded="lg"
+						mr="2"
+						flexShrink={0}
+					>
 						<Avatar
 							avatarStyle="Transparent"
 							topType="LongHairDreads"
