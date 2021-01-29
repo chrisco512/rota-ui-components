@@ -27,7 +27,7 @@ export default function ThemedHome({ Component, pageProps }) {
 					<link rel="icon" href="/favicon.ico" />
 				</Head>
 				<ColorModeScript initialColorMode="light" />
-				<Flex flexDirection="column" height="100vh">
+				<Flex flexDirection="column" className="app-container">
 					<Header />
 					<Flex flex="1" overflow="auto">
 						<MenuContainer />

@@ -1,20 +1,18 @@
-.container {
-	min-height: 100vh;
-	padding: 0 0.5rem;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-}
 html,
-body {
+body, #__next {
 	padding: 0;
 	margin: 0;
 	overflow: hidden;
 	font-size: 100%;
+	height: 100vh;
+	height: -webkit-fill-available;
 }
 * {
 	box-sizing: border-box;
+}
+.app-container {
+	height: 100vh;
+	height: -webkit-fill-available;
 }
 .thread-scroll::-webkit-scrollbar {
 	width: 0.5rem;
