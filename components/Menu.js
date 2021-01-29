@@ -52,7 +52,14 @@ export default function Menu() {
 	const { colorMode } = useColorMode();
 
 	return (
-		<Box w={64} h="100%" bg={menuBgColor[colorMode]} display={{ base: 'none', lg: 'block' }} overflow="auto" pt={8}>
+		<Box
+			w={64}
+			className="mobile-height-fix"
+			bg={menuBgColor[colorMode]}
+			display={{ base: 'none', lg: 'block' }}
+			overflow="auto"
+			pt={8}
+		>
 			<MenuList />
 		</Box>
 	);

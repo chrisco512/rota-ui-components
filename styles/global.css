@@ -6,10 +6,18 @@ body, #__next, .app-container {
 	font-size: 100%;
 	height: 100vh;
 	height: -webkit-fill-available;
+	max-height: 100vh;
+	max-height: -webkit-fill-available;
 }
 * {
 	box-sizing: border-box;
 }
+
+.mobile-height-fix {
+	height: 100vh;
+	height: -webkit-fill-available;
+}
+
 .thread-scroll::-webkit-scrollbar {
 	width: 0.5rem;
 	background-color: #5b3214;
