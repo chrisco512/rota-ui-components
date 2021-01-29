@@ -81,7 +81,15 @@ export default function Mobile() {
 
 	return (
 		<MediaProvider>
-			<Stack h="100%" w="100%" spacing={0} justify="center" align="center" bg="white" overflow="hidden">
+			<Stack
+				className="mobile-height-fix"
+				w="100%"
+				spacing={0}
+				justify="center"
+				align="center"
+				bg="white"
+				overflow="hidden"
+			>
 				<Flex
 					h={10}
 					justify="flex-start"
