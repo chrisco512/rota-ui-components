@@ -32,6 +32,7 @@ export default function CurrentClipBar({ authorName = 'Christopher Johnson', men
 			borderColor="outline.500"
 			bg="neutral.3"
 			alignItems="center"
+			flexShrink={0}
 		>
 			<Box
 				bg="green.500"

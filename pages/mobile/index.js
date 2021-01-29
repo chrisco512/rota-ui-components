@@ -160,7 +160,7 @@ export default function Mobile() {
 					</Box>
 				</Box>
 				<CurrentClipBar />
-				<Flex bg="outline.500" w="100%" h={12}>
+				<Flex bg="outline.500" w="100%" h={12} flexShrink={0}>
 					<MobileNavButton text="Main" icon={FaTable} isOpen={isOpenMainPanel} onClick={openMainPanel} />
 					<MobileNavButton
 						text="Thread"
