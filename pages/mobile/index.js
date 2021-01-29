@@ -102,22 +102,27 @@ export default function Mobile() {
 					whiteSpace="nowrap"
 					borderBottomWidth="1px"
 					borderColor="outline.500"
+					flexShrink={0}
 				>
 					<Breadcrumbs />
 				</Flex>
-				<Box w="100%" overflow="hidden" flex={1}>
-					<Box h="100%" w="100%" overflow="hidden">
-						<Box
+				<Stack w="100%" overflow="hidden" flex={1} spacing={0}>
+					<Stack flex={1} w="100%" overflow="hidden">
+						<Stack
+							w="100%"
 							as={SlideFade}
 							in={isOpenMainPanel}
 							direction="bottom"
+							overflow="hidden"
 							overflowY="auto"
-							h="100%"
+							flex={1}
+							spacing={0}
 							unmountOnExit={true}
 							className="main-scroll"
 						>
 							<Box
-								minH="100%"
+								w="100%"
+								flex={1}
 								borderRightWidth="1px"
 								borderColor="outline.500"
 								borderTopWidth="1px"
@@ -127,23 +132,27 @@ export default function Mobile() {
 							>
 								<TableView />
 							</Box>
-						</Box>
-						<Box
+						</Stack>
+						<Stack
+							w="100%"
 							as={SlideFade}
 							in={isOpenQueuePanel}
 							direction="bottom"
 							overflow="hidden"
-							h="100%"
+							flex={1}
+							spacing={0}
 							unmountOnExit={true}
 						>
 							<QueuePanel closePanel={toggleQueuePanel} />
-						</Box>
-						<Box
+						</Stack>
+						<Stack
+							w="100%"
 							as={SlideFade}
 							in={isOpenThreadPanel}
 							direction="bottom"
 							overflow="hidden"
-							h="100%"
+							flex={1}
+							spacing={0}
 							unmountOnExit={true}
 						>
 							<Stack
@@ -151,14 +160,15 @@ export default function Mobile() {
 								overflow="hidden"
 								spacing={0}
 								flexShrink={0}
-								h="100%"
+								flex={1}
+								spacing={0}
 								display={{ base: 'flex', xl: 'flex' }}
 							>
 								<CurrentThreadPanel closePanel={toggleThreadPanel} />
 							</Stack>
-						</Box>
-					</Box>
-				</Box>
+						</Stack>
+					</Stack>
+				</Stack>
 				<CurrentClipBar />
 				<Flex bg="outline.500" w="100%" h={12} flexShrink={0}>
 					<MobileNavButton text="Main" icon={FaTable} isOpen={isOpenMainPanel} onClick={openMainPanel} />
