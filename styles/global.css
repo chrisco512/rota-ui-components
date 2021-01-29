@@ -1,5 +1,5 @@
 html,
-body, #__next {
+body, #__next, .app-container {
 	padding: 0;
 	margin: 0;
 	overflow: hidden;
@@ -9,10 +9,6 @@ body, #__next {
 }
 * {
 	box-sizing: border-box;
-}
-.app-container {
-	height: 100vh;
-	height: -webkit-fill-available;
 }
 .thread-scroll::-webkit-scrollbar {
 	width: 0.5rem;
