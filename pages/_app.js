@@ -31,7 +31,7 @@ export default function ThemedHome({ Component, pageProps }) {
 					<Header />
 					<Flex flex="1" overflow="auto">
 						<MenuContainer />
-						<Box flex="1" className="mobile-height-fix" overflow="auto">
+						<Box flex="1" overflow="auto">
 							<Flex justify="center" className="mobile-height-fix">
 								<Component {...pageProps} />
 							</Flex>

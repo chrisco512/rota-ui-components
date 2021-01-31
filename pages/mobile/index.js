@@ -107,26 +107,27 @@ export default function Mobile() {
 					<Breadcrumbs />
 				</Flex>
 				<Stack w="100%" overflow="hidden" flex={1} spacing={0}>
-					<Stack flex={1} w="100%" overflow="hidden">
+					<Stack flex={1} w="100%" overflow="hidden" position="relative" spacing={0}>
 						<Stack
 							w="100%"
+							top={0}
+							bottom={0}
 							as={SlideFade}
 							in={isOpenMainPanel}
 							direction="bottom"
 							overflow="hidden"
 							overflowY="auto"
-							flex={1}
+							// flex={1}
 							spacing={0}
-							unmountOnExit={true}
+							// unmountOnExit={true}
 							className="main-scroll"
+							position="absolute"
 						>
 							<Box
 								w="100%"
-								flex={1}
 								borderRightWidth="1px"
 								borderColor="outline.500"
-								borderTopWidth="1px"
-								borderTopColor="transparent"
+								position="absolute"
 								pr={2}
 								pl={2}
 							>
@@ -135,25 +136,31 @@ export default function Mobile() {
 						</Stack>
 						<Stack
 							w="100%"
+							top={0}
+							bottom={0}
 							as={SlideFade}
 							in={isOpenQueuePanel}
 							direction="bottom"
 							overflow="hidden"
-							flex={1}
+							// flex={1}
 							spacing={0}
 							unmountOnExit={true}
+							position="absolute"
 						>
 							<QueuePanel closePanel={toggleQueuePanel} />
 						</Stack>
 						<Stack
 							w="100%"
+							top={0}
+							bottom={0}
 							as={SlideFade}
 							in={isOpenThreadPanel}
 							direction="bottom"
 							overflow="hidden"
-							flex={1}
+							// flex={1}
 							spacing={0}
 							unmountOnExit={true}
+							position="absolute"
 						>
 							<Stack
 								w="100%"

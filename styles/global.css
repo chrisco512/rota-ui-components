@@ -16,6 +16,8 @@ body, #__next, .app-container {
 .mobile-height-fix {
 	height: 100vh;
 	height: -webkit-fill-available;
+	max-height: 100vh;
+	max-height: -webkit-fill-available;
 }
 
 .thread-scroll::-webkit-scrollbar {
@@ -73,6 +75,7 @@ body, #__next, .app-container {
 }
 .main-scroll::-webkit-scrollbar-track {
 	padding: 2px;
+	background-color: #5b3214;
 }
 .main-scroll::-webkit-scrollbar-thumb {
 	background-color: #fcfcfc;
