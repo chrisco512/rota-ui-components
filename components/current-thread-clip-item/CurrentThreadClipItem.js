@@ -19,7 +19,7 @@ export default function CurrentThreadClipItem(props) {
 			<Flex
 				flexDirection="column"
 				overflow="hidden"
-				borderWidth="1px"
+				//borderWidth="1px"
 				w="100%"
 				pl="2"
 				pr="2"

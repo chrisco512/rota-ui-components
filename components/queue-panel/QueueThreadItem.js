@@ -1,10 +1,17 @@
 import { Box, Flex, Stack, Text, AccordionButton, AccordionIcon, AccordionPanel } from '@chakra-ui/react';
 import { Fragment } from 'react';
+import { OverlayScrollbarsComponent } from 'overlayscrollbars-react';
 
 import { QueueThreadClipItem } from './';
 import { customTheme } from '../../styles/theme';
 import { queue as defaultQueue, members } from '../../lib/dummydata';
 import convertLengthInSecondsToText from '../../lib/convertLengthInSecondsToText';
+
+const osComponentOptions = {
+	overflowBehavior: {
+		x: 'hidden',
+	},
+};
 
 function QueueThreadItem({ threadTitle, threadClips, tableTitle = 'Crypto Chat II', lengthInSeconds = 155 }) {
 	return (
@@ -36,11 +43,10 @@ function QueueThreadItem({ threadTitle, threadClips, tableTitle = 'Crypto Chat I
 				padding={0}
 				borderTopWidth={1}
 				borderColor="outline.500"
-				overflowY="auto"
-				h={192}
-				className="queue-item-scroll"
+				overflow="hidden"
+				h={{ base: 144, md: 192 }}
 			>
-				<Box w="100%" minH="100%">
+				<OverlayScrollbarsComponent className="grid-scroll" options={osComponentOptions}>
 					{threadClips.map((clip) => {
 						const { author, id, length } = clip;
 						const { name, mentionName, avatar } = members[author];
@@ -55,7 +61,7 @@ function QueueThreadItem({ threadTitle, threadClips, tableTitle = 'Crypto Chat I
 							/>
 						);
 					})}
-				</Box>
+				</OverlayScrollbarsComponent>
 			</AccordionPanel>
 		</Fragment>
 	);

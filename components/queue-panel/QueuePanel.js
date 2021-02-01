@@ -13,9 +13,16 @@ import {
 import { FaStream, FaTimes } from 'react-icons/fa';
 import { useState, useCallback } from 'react';
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
+import { OverlayScrollbarsComponent } from 'overlayscrollbars-react';
 
 import { DraggableQueueThreadItem, QueueThreadItem } from './';
 import { queue as defaultQueue } from '../../lib/dummydata';
+
+const osComponentOptions = {
+	overflowBehavior: {
+		x: 'hidden',
+	},
+};
 
 function QueueContent({ editingMode, queue, setQueue }) {
 	const onDragEnd = useCallback((result, provided) => {
@@ -133,10 +140,10 @@ function QueuePanel({ closePanel }) {
 					onClick={closePanel}
 				/>
 			</Flex>
-			<Box overflowY="auto" className="thread-scroll" flex={1}>
-				<Box minH="100%" borderRightWidth="1px" borderColor="outline.500">
+			<Box overflowY="auto" flex={1}>
+				<OverlayScrollbarsComponent className="thread-scroll" options={osComponentOptions}>
 					<QueueContent editingMode={editingMode} queue={queue} setQueue={setQueue} />
-				</Box>
+				</OverlayScrollbarsComponent>
 			</Box>
 		</Stack>
 	);

@@ -5,7 +5,7 @@ function TableThreadClipListHeader() {
 	const { colorMode } = useColorMode();
 
 	return (
-		<Flex bg="gray.100" h={5} align="center" position="sticky" top={10} zIndex={99}>
+		<Flex bg="gray.100" h={5} align="center" justify="center">
 			<Box w={10} overflow="hidden" ml="2" mr="2">
 				<Text
 					fontSize={0}

@@ -3,6 +3,7 @@ import { useState, useReducer } from 'react';
 import { Box, Heading, Stack, Flex, Text, useDisclosure, IconButton, SlideFade, Slide } from '@chakra-ui/react';
 import dynamic from 'next/dynamic';
 import { FaRegEye, FaRegClock, FaTable, FaThList, FaListOl, FaStream } from 'react-icons/fa';
+import { OverlayScrollbarsComponent } from 'overlayscrollbars-react';
 
 import { MediaProvider } from '../../lib';
 import { QueuePanel } from '../../components/queue-panel';
@@ -45,6 +46,16 @@ function MobileNavButton({ text, icon, onClick, isOpen }) {
 		</Flex>
 	);
 }
+
+const osComponentOptions = {
+	paddingAbsolute: false,
+	// scrollbars: {
+	// 	autoHide: 'never',
+	// },
+	overflowBehavior: {
+		x: 'hidden',
+	},
+};
 
 export default function Mobile() {
 	const { isOpen: isOpenQueuePanel, onClose: onCloseQueuePanel, onOpen: onOpenQueuePanel } = useDisclosure();
@@ -116,23 +127,16 @@ export default function Mobile() {
 							in={isOpenMainPanel}
 							direction="bottom"
 							overflow="hidden"
-							overflowY="auto"
-							// flex={1}
 							spacing={0}
-							// unmountOnExit={true}
-							className="main-scroll"
 							position="absolute"
 						>
-							<Box
-								w="100%"
-								borderRightWidth="1px"
-								borderColor="outline.500"
-								position="absolute"
-								pr={2}
-								pl={2}
+							<OverlayScrollbarsComponent
+								style={{ width: '100%' }}
+								className="main-scroll"
+								options={osComponentOptions}
 							>
 								<TableView />
-							</Box>
+							</OverlayScrollbarsComponent>
 						</Stack>
 						<Stack
 							w="100%"
@@ -170,6 +174,7 @@ export default function Mobile() {
 								flex={1}
 								spacing={0}
 								display={{ base: 'flex', xl: 'flex' }}
+								position="relative"
 							>
 								<CurrentThreadPanel closePanel={toggleThreadPanel} />
 							</Stack>

@@ -12,9 +12,16 @@ import {
 	useDisclosure,
 } from '@chakra-ui/react';
 import { FaTimes } from 'react-icons/fa';
+import { OverlayScrollbarsComponent } from 'overlayscrollbars-react';
 
 import { FrownNatural } from '../avatar/face/eyebrow';
 import { CurrentThreadClipItem } from '../current-thread-clip-item';
+
+const osComponentOptions = {
+	overflowBehavior: {
+		x: 'hidden',
+	},
+};
 
 function CurrentThreadPanel({ closePanel = () => {} }) {
 	return (
@@ -61,22 +68,25 @@ function CurrentThreadPanel({ closePanel = () => {} }) {
 					onClick={closePanel}
 				/>
 			</Flex>
-			<Box w="100%" flex={1} overflowY="auto" className="thread-scroll">
-				<Stack spacing={0}>
-					<CurrentThreadClipItem
-						borderRightWidth="1px"
-						borderColor="outline.500"
-						text="Some text to include in the da bubble. If the text must wrap this is what it might look like. See this link for details: https://www.ign.com. I might just keep going and dragging on with what I need to say here."
-					/>
-					<CurrentThreadClipItem borderTopWidth="1px" borderRightWidth="1px" borderColor="outline.500" />
-					<CurrentThreadClipItem borderTopWidth="1px" borderRightWidth="1px" borderColor="outline.500" />
-					<CurrentThreadClipItem borderTopWidth="1px" borderRightWidth="1px" borderColor="outline.500" />
-					<CurrentThreadClipItem borderTopWidth="1px" borderRightWidth="1px" borderColor="outline.500" />
-					<CurrentThreadClipItem borderTopWidth="1px" borderRightWidth="1px" borderColor="outline.500" />
-					<CurrentThreadClipItem borderTopWidth="1px" borderRightWidth="1px" borderColor="outline.500" />
-					<CurrentThreadClipItem borderTopWidth="1px" borderRightWidth="1px" borderColor="outline.500" />
-					<CurrentThreadClipItem borderTopWidth="1px" borderRightWidth="1px" borderColor="outline.500" />
-				</Stack>
+			<Box w="100%" flex={1}>
+				<OverlayScrollbarsComponent className="thread-scroll" options={osComponentOptions}>
+					<Stack spacing={0}>
+						<CurrentThreadClipItem text="Some text to include in the da bubble. If the text must wrap this is what it might look like. See this link for details: https://www.ign.com. I might just keep going and dragging on with what I need to say here." />
+						<CurrentThreadClipItem borderTopWidth="1px" borderColor="outline.500" />
+						<CurrentThreadClipItem borderTopWidth="1px" borderColor="outline.500" />
+						<CurrentThreadClipItem borderTopWidth="1px" borderColor="outline.500" />
+						<CurrentThreadClipItem borderTopWidth="1px" borderColor="outline.500" />
+						<CurrentThreadClipItem borderTopWidth="1px" borderColor="outline.500" />
+						<CurrentThreadClipItem borderTopWidth="1px" borderColor="outline.500" />
+						<CurrentThreadClipItem borderTopWidth="1px" borderColor="outline.500" />
+						<CurrentThreadClipItem borderTopWidth="1px" borderColor="outline.500" />
+						<Box p={3} borderTopWidth="1px" borderColor="outline.500">
+							<Text fontFamily="slab" color="outline.500" textAlign="center">
+								End of Thread
+							</Text>
+						</Box>
+					</Stack>
+				</OverlayScrollbarsComponent>
 			</Box>
 		</Fragment>
 	);
