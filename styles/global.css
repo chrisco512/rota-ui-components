@@ -14,9 +14,9 @@ body, #__next, .app-container {
 }
 
 .mobile-height-fix {
-	height: 100vh;
+	height: 100%;
 	height: -webkit-fill-available;
-	max-height: 100vh;
+	max-height: 100%;
 	max-height: -webkit-fill-available;
 }
 
