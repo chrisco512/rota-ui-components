@@ -49,9 +49,6 @@ function MobileNavButton({ text, icon, onClick, isOpen }) {
 
 const osComponentOptions = {
 	paddingAbsolute: false,
-	// scrollbars: {
-	// 	autoHide: 'never',
-	// },
 	overflowBehavior: {
 		x: 'hidden',
 	},
@@ -146,7 +143,6 @@ export default function Mobile() {
 							in={isOpenQueuePanel}
 							direction="bottom"
 							overflow="hidden"
-							// flex={1}
 							spacing={0}
 							unmountOnExit={true}
 							position="absolute"
@@ -161,7 +157,6 @@ export default function Mobile() {
 							in={isOpenThreadPanel}
 							direction="bottom"
 							overflow="hidden"
-							// flex={1}
 							spacing={0}
 							unmountOnExit={true}
 							position="absolute"

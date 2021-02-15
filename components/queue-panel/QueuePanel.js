@@ -105,7 +105,8 @@ function QueuePanel({ closePanel }) {
 				justify="center"
 				borderColor="outline.500"
 				borderBottomWidth="1px"
-				borderTopWidth="1px"
+				h={12}
+				flexShrink={0}
 			>
 				<IconButton
 					aria-label="Reorder Thread Queue"
@@ -138,6 +139,7 @@ function QueuePanel({ closePanel }) {
 					variant="ghost"
 					mr={1}
 					onClick={closePanel}
+					visibility={closePanel ? 'visible' : 'hidden'}
 				/>
 			</Flex>
 			<Box overflowY="auto" flex={1}>

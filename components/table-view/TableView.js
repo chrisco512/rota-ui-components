@@ -8,7 +8,7 @@ function TableTitle() {
 		<Text
 			as="h2"
 			fontFamily="slab"
-			fontSize={{ base: 4, md: 7 }}
+			fontSize={{ base: 4, lg: 5, xl: 7 }}
 			mb={{ base: 2, md: 3 }}
 			mt={{ base: 2, md: 3 }}
 			color="outline.500"

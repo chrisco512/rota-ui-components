@@ -1,7 +1,15 @@
-import { Flex, Stack, Text, Box } from '@chakra-ui/react';
+import { Flex, Stack, Text, Box, IconButton } from '@chakra-ui/react';
 import dynamic from 'next/dynamic';
+import { OverlayScrollbarsComponent } from 'overlayscrollbars-react';
+import { FaStream, FaTimes } from 'react-icons/fa';
 
 import { CurrentThreadClipItem } from '../current-thread-clip-item';
+
+const osComponentOptions = {
+	overflowBehavior: {
+		x: 'hidden',
+	},
+};
 
 const CurrentClipPlayer = dynamic(
 	() => {
@@ -13,24 +21,26 @@ const CurrentClipPlayer = dynamic(
 function CurrentPanel() {
 	return (
 		<Stack
-			bg="red.200"
-			w={96}
-			spacing={0}
-			borderRightWidth={3}
-			borderColor="outline.500"
+			w="100%"
 			overflow="hidden"
+			spacing={0}
 			flexShrink={0}
+			h="100%"
+			display={{ base: 'flex', xl: 'flex' }}
+			borderColor="outline.500"
+			borderRightWidth={1}
 		>
 			<Flex
 				bg="secondary.500"
 				align="center"
 				justify="center"
-				borderBottomWidth={1}
-				borderTopWidth={1}
+				borderBottomWidth="1px"
 				borderColor="outline.500"
+				h={12}
+				flexShrink={0}
 			>
 				<Text
-					fontSize={2}
+					fontSize={1}
 					isTruncated
 					fontFamily="slab"
 					pt={3}
@@ -38,6 +48,8 @@ function CurrentPanel() {
 					whiteSpace="nowrap"
 					color="outline.500"
 					textTransform="uppercase"
+					flex="1"
+					textAlign="center"
 				>
 					Current Clip
 				</Text>
@@ -48,11 +60,12 @@ function CurrentPanel() {
 				align="center"
 				justify="center"
 				borderBottomWidth={1}
-				borderTopWidth={1}
 				borderColor="outline.500"
+				h={12}
+				flexShrink={0}
 			>
 				<Text
-					fontSize={2}
+					fontSize={1}
 					isTruncated
 					fontFamily="slab"
 					pt={3}
@@ -64,27 +77,28 @@ function CurrentPanel() {
 					Current Thread
 				</Text>
 			</Flex>
-			<Box w="100%" flex={1} overflowY="auto" className="thread-scroll">
+			<OverlayScrollbarsComponent className="thread-scroll" options={osComponentOptions}>
 				<Stack spacing={0}>
-					<CurrentThreadClipItem
-						borderRightWidth="1px"
-						borderColor="outline.500"
-						text="Some text to include in the da bubble. If the text must wrap this is what it might look like. See this link for details: https://www.ign.com. I might just keep going and dragging on with what I need to say here."
-					/>
-					<CurrentThreadClipItem borderTopWidth="1px" borderRightWidth="1px" borderColor="outline.500" />
-					<CurrentThreadClipItem borderTopWidth="1px" borderRightWidth="1px" borderColor="outline.500" />
-					<CurrentThreadClipItem borderTopWidth="1px" borderRightWidth="1px" borderColor="outline.500" />
-					<CurrentThreadClipItem borderTopWidth="1px" borderRightWidth="1px" borderColor="outline.500" />
-					<CurrentThreadClipItem borderTopWidth="1px" borderRightWidth="1px" borderColor="outline.500" />
-					<CurrentThreadClipItem borderTopWidth="1px" borderRightWidth="1px" borderColor="outline.500" />
-					<CurrentThreadClipItem borderTopWidth="1px" borderRightWidth="1px" borderColor="outline.500" />
-					<CurrentThreadClipItem borderTopWidth="1px" borderRightWidth="1px" borderColor="outline.500" />
-					<CurrentThreadClipItem borderTopWidth="1px" borderRightWidth="1px" borderColor="outline.500" />
-					<CurrentThreadClipItem borderTopWidth="1px" borderRightWidth="1px" borderColor="outline.500" />
-					<CurrentThreadClipItem borderTopWidth="1px" borderRightWidth="1px" borderColor="outline.500" />
-					<CurrentThreadClipItem borderTopWidth="1px" borderRightWidth="1px" borderColor="outline.500" />
+					<CurrentThreadClipItem text="Some text to include in the da bubble. If the text must wrap this is what it might look like. See this link for details: https://www.ign.com. I might just keep going and dragging on with what I need to say here." />
+					<CurrentThreadClipItem borderTopWidth="1px" borderColor="outline.500" />
+					<CurrentThreadClipItem borderTopWidth="1px" borderColor="outline.500" />
+					<CurrentThreadClipItem borderTopWidth="1px" borderColor="outline.500" />
+					<CurrentThreadClipItem borderTopWidth="1px" borderColor="outline.500" />
+					<CurrentThreadClipItem borderTopWidth="1px" borderColor="outline.500" />
+					<CurrentThreadClipItem borderTopWidth="1px" borderColor="outline.500" />
+					<CurrentThreadClipItem borderTopWidth="1px" borderColor="outline.500" />
+					<CurrentThreadClipItem borderTopWidth="1px" borderColor="outline.500" />
+					<CurrentThreadClipItem borderTopWidth="1px" borderColor="outline.500" />
+					<CurrentThreadClipItem borderTopWidth="1px" borderColor="outline.500" />
+					<CurrentThreadClipItem borderTopWidth="1px" borderColor="outline.500" />
+					<CurrentThreadClipItem borderTopWidth="1px" borderColor="outline.500" />
+					<Box p={3} borderTopWidth="1px" borderColor="outline.500">
+						<Text fontFamily="slab" color="outline.500" textAlign="center">
+							End of Thread
+						</Text>
+					</Box>
 				</Stack>
-			</Box>
+			</OverlayScrollbarsComponent>
 		</Stack>
 	);
 }

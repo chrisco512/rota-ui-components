@@ -4,8 +4,8 @@ import { TableThreadItem, TableInfo } from '.';
 
 function TableThreads() {
 	return (
-		<Box flex={1} overflow="hidden" mt={{ base: 3, md: 0 }}>
-			<Text as="h4" fontFamily="slab" fontSize={{ base: 2, md: 4 }} color="outline.500">
+		<Box flex={1} overflow="hidden" mt={{ base: 3, xl: 0 }}>
+			<Text as="h4" fontFamily="slab" fontSize={{ base: 2, xl: 4 }} color="outline.500">
 				Threads
 			</Text>
 			<Accordion allowToggle>
@@ -26,7 +26,7 @@ function TableThreads() {
 
 function TableContent() {
 	return (
-		<Flex flexDirection={{ base: 'column', md: 'row' }}>
+		<Flex flexDirection={{ base: 'column', xl: 'row' }}>
 			<TableInfo />
 			<TableThreads />
 		</Flex>
