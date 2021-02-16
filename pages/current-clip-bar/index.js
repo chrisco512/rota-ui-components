@@ -1,9 +1,17 @@
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { Box, Heading, Stack } from '@chakra-ui/react';
+import dynamic from 'next/dynamic';
 
-import { CurrentClipBar } from '../../components/current-clip-bar';
+// import { CurrentClipBar } from '../../components/current-clip-bar';
 import { MediaProvider } from '../../lib';
+
+const CurrentClipBar = dynamic(
+	() => {
+		return import('../../components/current-clip-bar');
+	},
+	{ ssr: false }
+);
 
 export default function Container() {
 	return (

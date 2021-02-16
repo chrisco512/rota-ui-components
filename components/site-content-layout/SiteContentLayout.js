@@ -1,11 +1,19 @@
 import { Flex, Stack, useColorMode, Box, useBreakpointValue } from '@chakra-ui/react';
 import { OverlayScrollbarsComponent } from 'overlayscrollbars-react';
+import dynamic from 'next/dynamic';
 
 import { MediaProvider } from '../../lib';
-import { CurrentClipBar } from '../current-clip-bar';
+// import { CurrentClipBar } from '../current-clip-bar';
 import { QueuePanel } from '../queue-panel';
 import { CurrentPanel } from '../current-panel';
-import { Breadcrumbs } from '.';
+import { Breadcrumbs, MobileContentLayout } from '.';
+
+const CurrentClipBar = dynamic(
+	() => {
+		return import('../current-clip-bar');
+	},
+	{ ssr: false }
+);
 
 const osComponentOptions = {
 	paddingAbsolute: false,
@@ -55,30 +63,34 @@ function MainPanel({ children }) {
 
 export default function SiteContentLayout({ children }) {
 	const { colorMode } = useColorMode();
-	const bpValue = useBreakpointValue({ base: 'be', sm: 'sm', md: 'md', lg: 'lg', xl: 'xl', '2xl': '2xl' });
+	const bpValue = useBreakpointValue({ base: 'ba', sm: 'sm', md: 'md', lg: 'lg', xl: 'xl', '2xl': '2xl' });
 
 	return (
 		<MediaProvider>
-			<Stack
-				className="mobile-height-fix"
-				w="100%"
-				spacing={0}
-				borderColor="outline.500"
-				borderWidth={1}
-				overflow="hidden"
-			>
-				<Flex w="100%" flexGrow={1} overflow="hidden">
-					<Stack w={{ lg: 72, xl: 80, '2xl': 96 }} overflow="hidden" spacing={0} flexShrink={0}>
-						<CurrentPanel />
-					</Stack>
-					<MainPanel>{children}</MainPanel>
-					<Stack w={{ lg: 72, xl: 80, '2xl': 96 }} overflow="hidden" spacing={0} flexShrink={0}>
-						<QueuePanel />
-					</Stack>
-				</Flex>
-				<CurrentClipBar />
-				<div style={{ position: 'fixed', bottom: 8, right: 8 }}>{bpValue}</div>
-			</Stack>
+			{bpValue === 'ba' || bpValue === 'sm' || bpValue === 'md' ? (
+				<MobileContentLayout />
+			) : (
+				<Stack
+					className="mobile-height-fix"
+					w="100%"
+					spacing={0}
+					borderColor="outline.500"
+					borderWidth={1}
+					overflow="hidden"
+				>
+					<Flex w="100%" flexGrow={1} overflow="hidden">
+						<Stack w={{ lg: 72, xl: 80, '2xl': 96 }} overflow="hidden" spacing={0} flexShrink={0}>
+							<CurrentPanel />
+						</Stack>
+						<MainPanel>{children}</MainPanel>
+						<Stack w={{ lg: 72, xl: 80, '2xl': 96 }} overflow="hidden" spacing={0} flexShrink={0}>
+							<QueuePanel />
+						</Stack>
+					</Flex>
+					<CurrentClipBar />
+					<div style={{ position: 'fixed', bottom: 8, right: 8 }}>{bpValue}</div>
+				</Stack>
+			)}
 		</MediaProvider>
 	);
 }

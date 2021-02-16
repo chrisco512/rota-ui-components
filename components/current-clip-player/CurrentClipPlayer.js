@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { Box, Stack, Text } from '@chakra-ui/react';
-import videojs from 'video.js';
-import 'wavesurfer.js';
-import 'videojs-wavesurfer/dist/videojs.wavesurfer.js';
+// import videojs from 'video.js';
+// import 'wavesurfer.js';
+// import 'videojs-wavesurfer/dist/videojs.wavesurfer.js';
 
 import styles from './CurrentClipPlayer.module.css';
 import { Avatar } from '../avatar';
@@ -52,55 +52,70 @@ export default function CurrentClipPlayer({
 		skinColor: 'DarkBrown',
 	},
 }) {
-	const { player, dispatch } = useMedia();
+	const { player } = useMedia();
 
-	useEffect(() => {
-		if (!player) {
-			const audioNode = document.createElement('audio');
-			audioNode.classList.add('video-js', 'vjs-theme-rota', styles.audioNode);
-			const containerNode = document.getElementsByClassName(styles.audioContainer)[0];
-			containerNode.appendChild(audioNode);
+	useEffect(
+		() => {
+			if (player) {
+				const containerNode = document.getElementsByClassName(styles.audioContainer)[0];
 
-			let newPlayer = videojs(audioNode, options, () => {
-				newPlayer.src({
-					src: 'https://file-examples-com.github.io/uploads/2017/11/file_example_MP3_700KB.mp3',
-					type: 'audio/mpeg',
-				});
-			});
+				// this is intended to fix a resize/rerender issue where the audioNode is no
+				// longer mounted to the DOM
+				if (containerNode.children.length === 1) {
+					containerNode.appendChild(player.contentEl());
+				}
+			}
+		},
+		[ player ]
+	);
 
-			// newPlayer.on('waveReady', (event) => {
-			// 	console.log('waveform: ready!');
-			// });
+	// useEffect(() => {
+	// 	if (!player) {
+	// 		const audioNode = document.createElement('audio');
+	// 		audioNode.classList.add('video-js', 'vjs-theme-rota', styles.audioNode);
+	// 		const containerNode = document.getElementsByClassName(styles.audioContainer)[0];
+	// 		containerNode.appendChild(audioNode);
 
-			// newPlayer.on('playbackFinish', (event) => {
-			// 	console.log('playback finished');
-			// });
+	// 		let newPlayer = videojs(audioNode, options, () => {
+	// 			newPlayer.src({
+	// 				src: '/test-file.mp3',
+	// 				type: 'audio/mpeg',
+	// 			});
+	// 		});
 
-			newPlayer.on('timeupdate', (event) => {
-				dispatch({
-					type: 'SET_TIMER',
-					payload: {
-						timer: newPlayer.currentTime(),
-					},
-				});
-			});
+	// 		// newPlayer.on('waveReady', (event) => {
+	// 		// 	console.log('waveform: ready!');
+	// 		// });
 
-			dispatch({
-				type: 'SET_PLAYER',
-				payload: {
-					player: newPlayer,
-				},
-			});
-		}
+	// 		// newPlayer.on('playbackFinish', (event) => {
+	// 		// 	console.log('playback finished');
+	// 		// });
 
-		// return () => {
-		// 	if (player) {
-		// 		player.dispose();
-		// 	}
+	// 		newPlayer.on('timeupdate', (event) => {
+	// 			dispatch({
+	// 				type: 'SET_TIMER',
+	// 				payload: {
+	// 					timer: newPlayer.currentTime(),
+	// 				},
+	// 			});
+	// 		});
 
-		// 	setPlayer(null);
-		// };
-	}, []);
+	// 		dispatch({
+	// 			type: 'SET_PLAYER',
+	// 			payload: {
+	// 				player: newPlayer,
+	// 			},
+	// 		});
+	// 	}
+
+	// 	// return () => {
+	// 	// 	if (player) {
+	// 	// 		player.dispose();
+	// 	// 	}
+
+	// 	// 	setPlayer(null);
+	// 	// };
+	// }, []);
 
 	return (
 		<Box className={styles.audioContainer} bg="green.500" w="100%">

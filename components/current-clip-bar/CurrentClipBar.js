@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
 	Box,
 	Stack,
@@ -13,16 +13,92 @@ import {
 	useBreakpointValue,
 } from '@chakra-ui/react';
 import { FaRegPlayCircle, FaRedo, FaUndo, FaMicrophoneAlt, FaRegPauseCircle } from 'react-icons/fa';
+import videojs from 'video.js';
+import 'wavesurfer.js';
+import 'videojs-wavesurfer/dist/videojs.wavesurfer.js';
 
 import { Avatar } from '../avatar';
 import { textColor } from '../../styles/theme';
 import { useMedia } from '../../lib';
+import styles from '../current-clip-player/CurrentClipPlayer.module.css';
+
+let options = {
+	controls: true,
+	autoplay: false,
+	loop: false,
+	fluid: true,
+	aspectRatio: '16:11',
+	controlBar: {
+		fullscreenToggle: false,
+	},
+	plugins: {
+		wavesurfer: {
+			backend: 'MediaElement',
+			displayMilliseconds: false,
+			debug: true,
+			progressColor: '#ed640b',
+			waveColor: '#5b3214',
+			cursorColor: '#333',
+			hideScrollbar: true,
+			barWidth: 2,
+		},
+	},
+};
 
 export default function CurrentClipBar({ authorName = 'Christopher Johnson', mentionName = 'chrisjo' }) {
 	const { colorMode } = useColorMode();
 	const { timer, player, dispatch } = useMedia();
 	const currentClipBarInfoDisplay = useBreakpointValue({ base: false, md: true });
 	const currentClipBarScrubDisplay = useBreakpointValue({ base: false, lg: true });
+	//const { player, dispatch } = useMedia();
+
+	useEffect(() => {
+		if (!player) {
+			const audioNode = document.createElement('audio');
+			audioNode.classList.add('video-js', 'vjs-theme-rota', styles.audioNode);
+			// const containerNode = document.getElementsByClassName(styles.audioContainer)[0];
+			// containerNode.appendChild(audioNode);
+
+			let newPlayer = videojs(audioNode, options, () => {
+				newPlayer.src({
+					src: '/test-file.mp3',
+					type: 'audio/mpeg',
+				});
+			});
+
+			// newPlayer.on('waveReady', (event) => {
+			// 	console.log('waveform: ready!');
+			// });
+
+			// newPlayer.on('playbackFinish', (event) => {
+			// 	console.log('playback finished');
+			// });
+
+			newPlayer.on('timeupdate', (event) => {
+				dispatch({
+					type: 'SET_TIMER',
+					payload: {
+						timer: newPlayer.currentTime(),
+					},
+				});
+			});
+
+			dispatch({
+				type: 'SET_PLAYER',
+				payload: {
+					player: newPlayer,
+				},
+			});
+		}
+
+		// return () => {
+		// 	if (player) {
+		// 		player.dispose();
+		// 	}
+
+		// 	setPlayer(null);
+		// };
+	}, []);
 
 	return (
 		<Flex
